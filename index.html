@@ -19,17 +19,62 @@
     <script src="src/js/main.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
+
+    <!-- Estilos para el modo oscuro -->
+    <style>
+        body.dark {
+            background-color: #2d2d2d;
+            color: white;
+        }
+
+        body.dark .bg-gray-100 {
+            background-color: #3a3a3a;
+        }
+
+        body.dark .text-gray-800 {
+            color: white;
+        }
+
+        body.dark .bg-blue-600 {
+            background-color: #3b82f6;
+        }
+
+        body.dark .bg-blue-500 {
+            background-color: #2563eb;
+        }
+
+        body.dark .bg-gray-900 {
+            background-color: #1f1f1f;
+        }
+
+        body.dark .text-white {
+            color: black;
+        }
+
+        body.dark .text-gray-700 {
+            color: #d1d5db;
+        }
+
+        .dark #hero-background {
+            filter: brightness(0.5);
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100 text-gray-800 font-sans leading-relaxed">
 
+    <!-- Modo Oscuro / Claro -->
+    <button id="dark-mode-toggle" class="absolute top-4 right-4 p-2 bg-gray-800 text-white rounded-full">
+        <i class="fas fa-moon"></i>
+    </button>
+
     <!-- Hero Section (Imagen principal) -->
-    <section class="relative h-screen bg-cover bg-center" style="background-image: url('assets/images/hero-background.jpg');">
+    <section id="hero-background" class="relative h-screen bg-cover bg-center" style="background-image: url('assets/images/hero-background.jpg');">
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="flex flex-col items-center justify-center h-full text-center text-white relative z-10">
             <h1 class="text-5xl font-semibold mb-4">Hola, soy Alberto Trujillo</h1>
             <p class="text-xl mb-6">Técnico Informático, SysAdmin y Desarrollador Freelance</p>
-            <a href="assets/docs/Alberto/cv.pdf" download class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-500 transition duration-300">Descargar CV</a>
+            <a href="assets/docs/cv.pdf" download class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-500 transition duration-300">Descargar CV</a>
         </div>
     </section>
 
@@ -115,12 +160,39 @@
         </div>
     </section>
 
-
-
     <!-- Footer -->
     <footer class="bg-gray-900 text-white text-center py-4 mt-12">
         <p>&copy; 2025 Alberto Trujillo</p>
     </footer>
+
+    <!-- Modo oscuro/claro -->
+    <script>
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+        const heroBackground = document.getElementById('hero-background');
+        const icon = darkModeToggle.querySelector('i');
+
+        // Verifica si el modo oscuro está guardado en el localStorage
+        if (localStorage.getItem('dark-mode') === 'enabled') {
+            body.classList.add('dark');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            // Cambiar el ícono del botón
+            if (body.classList.contains('dark')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('dark-mode', 'enabled');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.removeItem('dark-mode');
+            }
+        });
+    </script>
 </body>
 
 </html>
