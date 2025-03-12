@@ -6,7 +6,7 @@
     <meta name="description" content="Portafolio de Alberto Trujillo: SysAdmin, técnico informático y desarrollador freelance especializado en backend con PHP y frontend con HTML, CSS y JavaScript.">
     <meta name="keywords" content="SysAdmin, Técnico Informático, Freelance, Backend, PHP, Desarrollo Web, Frontend, Redes, Linux, Windows">
     <meta name="author" content="Alberto Trujillo">
-    <meta property="og:title" content="Alberto Trujillo - SysAdmin y Desarrollador Freelance">
+    <meta property="og:title" content="Alberto Trujillo - SysAdmin">
     <meta property="og:description" content="Descubre mi experiencia como técnico informático, administrador de sistemas y desarrollador freelance en proyectos backend y frontend.">
     <meta property="og:image" href="assets/images/logo.png">
     <meta property="og:url" content="https://grup7.blog">
@@ -15,203 +15,118 @@
     <title>Alberto Trujillo - SysAdmin</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="src/css/styles.css" rel="stylesheet">
-    <script src="src/js/script.js" defer></script>
+    <link href="src/css/styles_def.css" rel="stylesheet">
+    <script src="src/js/scripts.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100 text-gray-800 font-sans leading-relaxed">
     <!-- Header -->
-    <header class="flex items-center justify-between p-6 bg-gray-800 text-white shadow-lg">
+    <header class="flex items-center justify-between p-6 bg-gray-900 text-white shadow-xl fixed top-0 w-full z-50">
         <div id="logo-container" class="flex items-center space-x-4">
-            <img src="assets/images/logo.png" alt="Logo de mi portafolio" id="logo" class="h-16">
-            <h1 class="text-2xl font-semibold">Alberto Trujillo</h1>
+            <img src="assets/images/logo.png" alt="Logo de mi portafolio" id="logo" class="h-16 transition-transform transform hover:scale-110">
+            <h1 class="text-2xl font-semibold tracking-tight">Alberto Trujillo</h1>
         </div>
-        <nav>
-            <ul class="flex space-x-6">
-                <li><a href="#inicio" class="hover:text-blue-300 transition">Inicio</a></li>
-                <li><a href="#sobre-mi" class="hover:text-blue-300 transition">Sobre Mí</a></li>
-                <li><a href="#habilidades" class="hover:text-blue-300 transition">Habilidades</a></li>
-                <li><a href="#proyectos" class="hover:text-blue-300 transition">Proyectos</a></li>
-                <li><a href="#contacto" class="hover:text-blue-300 transition">Contacto</a></li>
-            </ul>
-            <!-- Botón de Descargar CV -->
-            <a href="assets/docs/cv.pdf" download 
-               class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500 transition">
-               Descargar CV
-            </a>
+        <nav class="flex items-center space-x-6">
+            <a href="assets/docs/Alberto/cv.pdf" download class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300">Descargar CV</a>
         </nav>
     </header>
-        <main class="py-8">
-            <!-- Sección "Inicio" -->
-            <section id="inicio" class="flex flex-col md:flex-row items-center justify-between px-6 md:px-12">
-                <!-- Descripción (Izquierda) -->
-                <div class="w-full md:w-1/2 mb-8 md:mb-0">
-                    <h1 class="text-3xl md:text-4xl font-semibold text-gray-800 mb-4">Hola, soy Alberto Trujillo</h1>
-                    <p class="text-lg text-gray-700 mb-4 leading-relaxed">
-                        Soy Técnico Informático titulado y actualmente estudiante de primer año del ciclo de <strong>ASIXC (Administración de Sistemas Informáticos en Red)</strong> en el <strong>Institut Tecnologic de Barcelona</strong>. 
-                        Estoy apasionado por el mundo de la informática, y siempre en busca de nuevos retos para aprender y mejorar mis habilidades.
-                    </p>
-                </div>
 
-                <!-- Imagen (Derecha) -->
-                <div class="w-full md:w-1/2 flex justify-center">
-                    <img src="assets/images/Alberto.webp" alt="Alberto Trujillo" class="w-3/4 md:w-3/5 lg:w-2/5 rounded-lg shadow-xl transition-transform transform hover:scale-105 object-cover">
-                </div>
-            </section>
-        </main>
-        <!-- Sección "Sobre Mí" -->
-        <section id="sobre-mi" class="bg-white p-8 rounded-lg shadow-lg w-full mx-auto my-8 text-center text-black">
-            <div class="px-6 md:px-12">
-                <h2 class="text-3xl md:text-4xl font-semibold text-black mb-4">Sobre Mí</h2>
-                <p class="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
-                    Soy un Técnico Informático apasionado por la ciberseguridad y el desarrollo web. Con experiencia en backend y frontend, disfruto creando soluciones digitales innovadoras. Me encanta aprender nuevas tecnologías y siempre estoy dispuesto a enfrentar nuevos desafíos.
-                </p>
-                <!-- Iconos de tecnologías -->
-                <div class="flex justify-center space-x-6 mt-6">
-                    <div class="text-4xl text-orange-500 hover:text-orange-400 transition-all duration-300">
-                        <i class="fab fa-html5"></i>
-                    </div>
-                    <div class="text-4xl text-blue-400 hover:text-blue-300 transition-all duration-300">
-                        <i class="fab fa-css3-alt"></i>
-                    </div>
-                    <div class="text-4xl text-yellow-400 hover:text-yellow-300 transition-all duration-300">
-                        <i class="fab fa-js-square"></i>
-                    </div>
-                    <div class="text-4xl text-blue-500 hover:text-blue-400 transition-all duration-300">
-                        <i class="fab fa-python"></i>
-                    </div>
-                </div>
+    <!-- Sección "Inicio" -->
+    <section id="inicio" class="flex flex-col md:flex-row items-center justify-between px-6 md:px-12 py-24 mt-24">
+        <div class="w-full md:w-1/2 mb-8 md:mb-0">
+            <h1 class="text-4xl font-semibold text-gray-800 mb-4">Hola, soy Alberto Trujillo</h1>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                Soy Técnico Informático titulado y actualmente estudiante de primer año del ciclo de <strong>ASIXC (Administración de Sistemas Informáticos en Red)</strong> en el <strong>Institut Tecnologic de Barcelona</strong>.
+                Apasionado por la informática y siempre en busca de nuevos retos para aprender y mejorar mis habilidades.
+            </p>
+        </div>
+        <div class="w-full md:w-1/2 flex justify-center">
+            <img src="assets/images/Alberto/Alberto.webp" alt="Alberto Trujillo" class="w-3/4 md:w-3/5 lg:w-2/5 rounded-lg shadow-2xl hover:scale-105 transition-transform duration-300 object-cover">
+        </div>
+    </section>
+
+    <!-- Sección "Sobre Mí" -->
+    <section id="sobre-mi" class="bg-white py-16 px-6 md:px-12 rounded-lg shadow-xl w-full mx-auto my-12 text-center text-black">
+        <h2 class="text-3xl md:text-4xl font-semibold text-black mb-6">Sobre Mí</h2>
+        <p class="text-lg md:text-xl text-gray-700 mb-4 leading-relaxed">
+            Soy estudiante de Administración de Sistemas Informáticos en Red con experiencia en administración de sistemas, redes y ciberseguridad.
+            Me apasiona aprender y aplicar mis habilidades en proyectos prácticos.
+        </p>
+        <p class="text-lg md:text-xl text-gray-700 mb-4 leading-relaxed">
+            En mis tiempos libres, desarrollo aplicaciones web utilizando <strong>Tailwind CSS, HTML, JavaScript</strong> y <strong>PHP</strong>, creando interfaces limpias y dinámicas.
+        </p>
+        <!-- Iconos de Tecnologías -->
+        <div class="flex justify-center space-x-8 mt-6">
+            <div class="text-4xl text-blue-500 hover:text-blue-400 transition-all duration-300"><i class="fab fa-linux"></i></div>
+            <div class="text-4xl text-gray-700 hover:text-gray-500 transition-all duration-300"><i class="fab fa-windows"></i></div>
+            <div class="text-4xl text-green-500 hover:text-green-400 transition-all duration-300"><i class="fas fa-network-wired"></i></div>
+            <div class="text-4xl text-red-500 hover:text-red-400 transition-all duration-300"><i class="fas fa-shield-alt"></i></div>
+            <div class="text-4xl text-purple-500 hover:text-purple-400 transition-all duration-300"><i class="fab fa-php"></i></div>
+            <div class="text-4xl text-orange-500 hover:text-orange-400 transition-all duration-300"><i class="fab fa-html5"></i></div>
+        </div>
+    </section>
+
+    <!-- Sección "Habilidades Técnicas" -->
+    <section id="habilidades" class="bg-gray-50 text-black py-16 px-6 md:px-12 rounded-lg shadow-xl w-full mx-auto my-12">
+        <h2 class="text-3xl font-semibold text-center mb-8">Habilidades Técnicas</h2>
+        <ul class="space-y-6">
+            <li class="flex items-center space-x-4">
+                <i class="fas fa-shield-alt text-2xl text-red-500"></i>
+                <span><strong>Ciberseguridad:</strong> Protección contra malware, DDoS, phishing, y seguridad en aplicaciones web</span>
+            </li>
+            <li class="flex items-center space-x-4">
+                <i class="fas fa-server text-2xl text-blue-500"></i>
+                <span><strong>Administración de Sistemas y Redes:</strong> Servidores Linux/Windows, redes LAN, TCP/IP</span>
+            </li>
+            <li class="flex items-center space-x-4">
+                <i class="fab fa-html5 text-2xl text-orange-500"></i>
+                <span><strong>Desarrollo Web Full Stack:</strong> HTML5, CSS3, JavaScript, PHP, MySQL, Laravel, TailwindCSS</span>
+            </li>
+            <li class="flex items-center space-x-4">
+                <i class="fas fa-code text-2xl text-yellow-500"></i>
+                <span><strong>Automatización y Programación:</strong> Python, Bash, PowerShell</span>
+            </li>
+            <li class="flex items-center space-x-4">
+                <i class="fab fa-github text-2xl text-green-500"></i>
+                <span><strong>Gestión de Proyectos:</strong> Git, GitHub, GitLab, Jira</span>
+            </li>
+            <li class="flex items-center space-x-4">
+                <i class="fas fa-cloud text-2xl text-purple-500"></i>
+                <span><strong>Virtualización y Nube:</strong> VMware, AWS, Google Cloud</span>
+            </li>
+            <li class="flex items-center space-x-4">
+                <i class="fas fa-plug text-2xl text-teal-500"></i>
+                <span><strong>Arduino:</strong> Programación y automatización con microcontroladores Arduino</span>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Sección "Proyectos" -->
+    <section id="proyectos" class="bg-white py-16 px-6 md:px-12 rounded-lg shadow-xl w-full mx-auto my-12">
+        <h2 class="text-3xl font-semibold text-center mb-8">Proyectos</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-blue-600">Gestión de Servidores Linux</h3>
+                <p class="text-gray-700">Configuración y gestión de servidores Linux para clientes de diferentes sectores.</p>
             </div>
-        </section>
-
-<!-- Sección "Habilidades Técnicas" -->
-<section id="habilidades" class="bg-white text-black py-8 px-6 md:px-12 rounded-lg shadow-lg w-full mx-auto my-8">
-    <h2 class="text-3xl font-semibold text-center text-black-500 mb-6">Habilidades Técnicas</h2>
-    <ul class="space-y-4">
-        <!-- Ciberseguridad -->
-        <li class="flex items-center space-x-4">
-            <span class="text-2xl text-red-500">
-                <i class="fas fa-shield-alt"></i>
-            </span>
-            <span><strong>Ciberseguridad:</strong> Protección contra malware, DDoS, phishing, y seguridad en aplicaciones web</span>
-        </li>
-        <!-- Administración de Sistemas -->
-        <li class="flex items-center space-x-4">
-            <span class="text-2xl text-blue-500">
-                <i class="fas fa-server"></i>
-            </span>
-            <span><strong>Administración de Sistemas y Redes:</strong> Instalación y configuración de servidores Linux/Windows, administración de redes (LAN), protocolos TCP/IP</span>
-        </li>
-        <!-- Desarrollo Web -->
-        <li class="flex items-center space-x-4">
-            <span class="text-2xl text-orange-500">
-                <i class="fab fa-html5"></i>
-            </span>
-            <span><strong>Desarrollo Web Full Stack:</strong> HTML5, CSS3, JavaScript, PHP, MySQL, aplicaciones web responsivas</span>
-        </li>
-        <!-- Scripting y Automatización -->
-        <li class="flex items-center space-x-4">
-            <span class="text-2xl text-yellow-500">
-                <i class="fas fa-code"></i>
-            </span>
-            <span><strong>Automatización y Programación:</strong> Python, Bash, Powershell para automatización de tareas</span>
-        </li>
-        <!-- Gestión de Proyectos -->
-        <li class="flex items-center space-x-4">
-            <span class="text-2xl text-green-500">
-                <i class="fab fa-github"></i>
-            </span>
-            <span><strong>Gestión de Proyectos:</strong> Git, GitHub, GitLab, Jira para control de versiones y proyectos colaborativos</span>
-        </li>
-        <!-- Virtualización y Nube -->
-        <li class="flex items-center space-x-4">
-            <span class="text-2xl text-purple-500">
-                <i class="fas fa-cloud"></i>
-            </span>
-            <span><strong>Virtualización y Nube:</strong> VMware, VirtualBox, AWS, Google Cloud</span>
-        </li>
-    </ul>
-</section>
-
-        <!-- Sección "Mis Proyectos" -->
-        <section id="proyectos" class="px-6 md:px-12 py-8 bg-gray-50">
-            <h2 class="text-3xl font-semibold text-center text-gray-800 mb-6">Mis Proyectos</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Proyecto 1 -->
-                <article class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Proyecto en Laravel MTM</h3>
-                    <img src="assets/images/Laravel.svg.png" alt="Imagen Laravel" class="w-full h-48 object-cover rounded mt-4">
-                    <p class="text-gray-600 mt-4">Este es mi último proyecto realizado hasta el momento. Aquí aprendí a hacer backend y a integrar bases de datos en las webs, especialmente utilizando Laravel.</p>
-                    <div class="mt-4">
-                        <a href="https://github.com/AlbertoTrujillo1/MTM" class="inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500">Ver Proyecto</a>
-                    </div>
-                </article>
-
-                <!-- Proyecto 2 -->
-                <article class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Muntrume Motorsport</h3>
-                    <img src="assets/images/logo.webp" alt="Imagen Muntrume Motorsport" class="w-full h-48 object-cover rounded mt-4">
-                    <p class="text-gray-600 mt-4">En este proyecto, creé mi propio equipo de esports con su propia web. Aquí ya había aprendido bastante sobre desarrollo web gracias al proyecto anterior.</p>
-                    <div class="mt-4">
-                        <a href="https://github.com/AlbertoTrujillo1/muntrume" class="inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500">Ver Proyecto</a>
-                    </div>
-                </article>
-
-                <!-- Proyecto 3 -->
-                <article class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-xl font-semibold text-gray-800">Proyecto de Grado Medio</h3>
-                    <img src="assets/images/arducurity_logo.png" alt="Imagen Arducurity" class="w-full h-48 object-cover rounded mt-4">
-                    <p class="text-gray-600 mt-4">Este fue mi primer proyecto de grado medio. Empecé a investigar sobre las webs y a poner en práctica todo lo que me habían enseñado sobre HTML y CSS básicos, añadiendo una pequeña base de datos en MySQL para el registro de usuarios.</p>
-                    <div class="mt-4">
-                        <a href="https://github.com/AlbertoTrujillo-ITB2425/Arducurity" class="inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500">Ver Proyecto</a>
-                    </div>
-                </article>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-blue-600">Desarrollo de Aplicaciones Web</h3>
+                <p class="text-gray-700">Creación de plataformas web dinámicas utilizando PHP y Laravel.</p>
             </div>
-        </section>
-
-        <!-- Sección "Contacto" -->
-        <section id="contacto" class="px-6 md:px-12 py-8 bg-gray-100">
-            <h2 class="text-3xl font-semibold text-center text-gray-800 mb-6">Contacto</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Formulario de contacto (izquierda) -->
-                <form action="#" method="post" class="space-y-4 form-contacto">
-                    <input type="text" id="nombre" name="nombre" required class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500" placeholder="Tu nombre">
-                    <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500" placeholder="Tu email">
-                    <textarea id="mensaje" name="mensaje" required class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500" placeholder="Tu mensaje" rows="5"></textarea>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-500 transition">Enviar</button>
-                </form>
-
-                <!-- Mapa de ubicación (derecha) -->
-                <div class="max-w-full overflow-hidden rounded-lg shadow-lg">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23928.48852453334!2d2.1728119696780337!3d41.437896612759126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4bcdd2616fa31%3A0x6a49c24a8549b56c!2sSant%20Andreu%2C%20Barcelona!5e0!3m2!1sca!2ses!4v1732609014058!5m2!1sca!2ses" 
-                        width="100%" 
-                        height="450" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-blue-600">Seguridad en Redes</h3>
+                <p class="text-gray-700">Implementación de medidas de seguridad para proteger redes empresariales.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-4 text-center">
-        <p>&copy; 2024 Alberto Trujillo. Todos los derechos reservados.</p>
-        <div class="flex justify-center space-x-6 mt-4">
-            <a href="https://github.com/AlbertoTrujillo1"" target="_blank">
-                <i class="fab fa-github github"></i>
-            </a>
-            <!-- Icono de LinkedIn -->
-            <a href="https://www.linkedin.com/in/alberto-trujillo-mingorance-288237266/" target="_blank">
-                <i class="fab fa-linkedin"></i>
-        </div>
+    <footer class="bg-gray-900 text-white text-center py-4 mt-12">
+        <p>&copy; 2025 Alberto Trujillo - Todos los derechos reservados</p>
     </footer>
-
 </body>
 
 </html>
