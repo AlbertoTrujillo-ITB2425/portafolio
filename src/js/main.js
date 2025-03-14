@@ -109,20 +109,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-        // Obtén los elementos necesarios
-        const toggleButton = document.getElementById('toggle-dark-mode');
-        const body = document.getElementById('body');
-        const overlay = document.getElementById('dark-mode-overlay');
-
-        // Función que cambia entre el modo oscuro y claro
-        toggleButton.addEventListener('click', () => {
-            // Alterna la clase 'dark' en el body
-            body.classList.toggle('dark');
-
-            // Cambia el texto del botón dependiendo del modo actual
-            if (body.classList.contains('dark')) {
-                toggleButton.textContent = 'Modo Claro';  // Si está en modo oscuro, muestra 'Modo Claro'
-            } else {
-                toggleButton.textContent = 'Modo Oscuro'; // Si está en modo claro, muestra 'Modo Oscuro'
-            }
-        });

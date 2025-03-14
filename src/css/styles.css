@@ -1,8 +1,14 @@
-/* Para animaciones suaves */
-.transition-transform {
-  transition: transform 0.3s ease-in-out;
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --accent-color: #6200ea;
 }
 
-.transform:hover {
-  transform: scale(1.05);
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+button {
+    background-color: var(--accent-color);
 }
