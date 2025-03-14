@@ -1,0 +1,93 @@
+/* styles_def.css */
+
+/* Definir las variables de color */
+:root {
+    --background-color-light: #ffffff;
+    --background-color-dark: #121212;
+    --text-color-light: #000000;
+    --text-color-dark: #ffffff;
+    --accent-color-light: #6200ea;
+    --accent-color-dark: #bb86fc;
+    --border-color-light: #e0e0e0;
+    --border-color-dark: #333333;
+    --link-color-light: #1a73e8;
+    --link-color-dark: #bb86fc;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Modo claro */
+body.light {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+}
+
+body.light a {
+    color: var(--link-color-light);
+}
+
+body.light button {
+    background-color: var(--accent-color-light);
+    border: 1px solid var(--border-color-light);
+}
+
+/* Modo oscuro */
+body.dark {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+body.dark a {
+    color: var(--link-color-dark);
+}
+
+body.dark button {
+    background-color: var(--accent-color-dark);
+    border: 1px solid var(--border-color-dark);
+}
+
+/* Títulos y secciones con fondo claro */
+section {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+section.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+section.dark {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Botón para el modo oscuro */
+button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Animación para transición de tema */
+.theme-transition {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Iconos del modo oscuro */
+#dark-mode-icon {
+    transition: transform 0.3s ease;
+}
+
+#dark-mode-icon:hover {
+    transform: scale(1.2);
+}
