@@ -1,12 +1,9 @@
 User-agent: *
-Disallow: /wp-admin/
-Disallow: /wp-login.php
 Disallow: /private/
 Disallow: /cgi-bin/
-Disallow: /cart/
-Disallow: /search
-Disallow: /tag/
-Allow: /wp-content/uploads/
-Allow: /wp-content/themes/
-Allow: /wp-content/plugins/
+Disallow: /temp/
+Allow: /assets/
+Allow: /images/
+Allow: /css/
+Allow: /js/
 Sitemap: https://atrujillo.blog/sitemap.xml
