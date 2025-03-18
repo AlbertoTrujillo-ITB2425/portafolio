@@ -1,0 +1,21 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /login/
+Disallow: /register/
+Disallow: /user/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /search/
+
+Allow: / 
+Sitemap: https://atrujillo.blog/sitemap.xml
+
+Crawl-delay: 10
+Request-rate: 1/1s
+
+User-agent: Googlebot
+Disallow: /noindex/
+
+User-agent: Bingbot
+Disallow: /noindex/
