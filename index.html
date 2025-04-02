@@ -462,89 +462,95 @@
 
 
     <!-- Sección de Herramientas y Scripts -->
-<section id="herramientas" class="bg-gray-50 text-black py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
-    <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
-        <span class="mb-2">Herramientas y Scripts</span>
-        <span class="bg-blue-600 w-20 h-1"></span>
-    </h2>
+    <section id="herramientas" class="bg-gray-50 text-black py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
+        <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
+            <span class="mb-2">Herramientas y Scripts</span>
+            <span class="bg-blue-600 w-20 h-1"></span>
+        </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <!-- Tarjeta de Script 1 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-xl font-semibold text-blue-600">Creación de Usuarios CSV</h3>
-                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Bash</span>
-                </div>
-                <p class="text-gray-700 mb-4">Script para crear usuarios apartir de un csv y asignarle un directorio personal.</p>
-                <div class="bg-gray-100 p-4 rounded-lg mb-4 overflow-x-auto">
-                    <pre class="text-sm"><code>#Author: Alberto Trujillo
-#Date: Febrary 3, 2025
-#Description: Script to create new local users from a csv file
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <!-- Tarjeta de Script 1 (Windows - PowerShell) -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-semibold text-blue-600">Creación de Usuarios CSV</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">PowerShell</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">Script en PowerShell para crear usuarios a partir de un CSV y asignarles un directorio personal en Windows.</p>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4 overflow-x-auto">
+                        <pre class="text-sm"><code># Author: Alberto Trujillo
+    # Date: February 3, 2025
+    # Description: Script to create new local users from a CSV file in Windows
 
-$csvFilePath = "C:\Users\AlbertoT\Desktop\scripts\csv\users.csv"
-if (-Not (Test-Path $csvFilePath)) { Write-Host "Error: El fitxer no existeix." -ForegroundColor Red; exit }
-Import-Csv $csvFilePath -Header UserName, Directory | ForEach-Object {
-    if (-Not (Get-LocalUser -Name $_.UserName -ErrorAction SilentlyContinue)) { New-LocalUser -Name $_.UserName -NoPassword; Write-Host "Usuari '$($_.UserName)' creat." -ForegroundColor Green }
-    if (-Not (Test-Path $_.Directory)) { New-Item -Path $_.Directory -ItemType Directory; Write-Host "Directori '$($_.Directory)' creat." -ForegroundColor Green }
-}
-</code></pre>
+    $csvFilePath = "C:\Users\AlbertoT\Desktop\scripts\csv\users.csv"
+    if (-Not (Test-Path $csvFilePath)) { Write-Host "Error: El archivo no existe." -ForegroundColor Red; exit }
+    Import-Csv $csvFilePath -Header UserName, Directory | ForEach-Object {
+        if (-Not (Get-LocalUser -Name $_.UserName -ErrorAction SilentlyContinue)) { New-LocalUser -Name $_.UserName -NoPassword; Write-Host "Usuario '$($_.UserName)' creado." -ForegroundColor Green }
+        if (-Not (Test-Path $_.Directory)) { New-Item -Path $_.Directory -ItemType Directory; Write-Host "Directorio '$($_.Directory)' creado." -ForegroundColor Green }
+    }
+                        </code></pre>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <a href="https://github.com/AlbertoTrujillo-ITB2425/scripts-1ASIXc/blob/main/PS1/E10.ps1" class="text-blue-600 hover:text-blue-500 font-semibold flex items-center">
+                            <span>Ver script completo</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="https://github.com/AlbertoTrujillo-ITB2425/scripts-1ASIXc/blob/main/PS1/E10.ps1" class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="flex justify-between items-center">
-                    <a href="https://github.com/AlbertoTrujillo-ITB2425/scripts-1ASIXc/blob/main/PS1/E10.ps1" class="text-blue-600 hover:text-blue-500 font-semibold flex items-center">
-                        <span>Ver script completo</span>
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    <a href="https://github.com/AlbertoTrujillo-ITB2425/scripts-1ASIXc/blob/main/PS1/E10.ps1" class="text-gray-600 hover:text-blue-600">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
+            </div>
+
+            <!-- Tarjeta de Script 2 (Linux - Bash) -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-semibold text-green-600">Creación de Máquinas en AWS</h3>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Bash</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">Script en Bash para crear instancias EC2 en AWS a partir de un archivo CSV en Linux.</p>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4 overflow-x-auto">
+                        <pre class="text-sm"><code>#!/bin/bash
+    # Script para crear máquinas en AWS a partir de un archivo CSV
+    # Autor: Alberto Trujillo
+    # Fecha: 16/1/2025
+    # Versión: 1.0
+
+    # Definir el archivo CSV que contiene la información de las máquinas a crear
+    CSV_FILE="maquinas.csv"
+
+    # Estructura del CSV: instance_type,ami,security_group,instance_label
+
+    # Leer el archivo CSV línea por línea y crear una instancia por cada entrada
+    while IFS=, read -r instance_type ami security_group instance_label
+    do
+        echo "Creando la máquina $instance_label..."
+
+        aws ec2 run-instances \
+            --image-id "$ami" \
+            --count 1 \
+            --instance-type "$instance_type" \
+            --security-group-ids "$security_group" \
+            --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instance_label}]"
+
+    done < "$CSV_FILE"
+
+    echo "Máquinas creadas correctamente."
+                        </code></pre>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="text-green-600 hover:text-green-500 font-semibold flex items-center">
+                            <span>Ver script completo</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-green-600">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Tarjeta de Script 2 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-xl font-semibold text-green-600">Backup Automatizado</h3>
-                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Python</span>
-                </div>
-                <p class="text-gray-700 mb-4">Script de Python para realizar backups automáticos de bases de datos MySQL y archivos críticos, con rotación de copias y compresión.</p>
-                <div class="bg-gray-100 p-4 rounded-lg mb-4 overflow-x-auto">
-                    <pre class="text-sm"><code>#!/usr/bin/env python3
-# backup_script.py
-import os
-import datetime
-import subprocess
-import shutil
-
-# Configuración
-BACKUP_DIR = "/backups"
-DB_NAME = "mi_base_datos"
-KEEP_DAYS = 7
-
-# Generar nombre de archivo con fecha
-date_str = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-backup_file = f"{BACKUP_DIR}/db_{DB_NAME}_{date_str}.sql.gz"
-
-# Ejecutar backup de MySQL
-subprocess.run(f"mysqldump {DB_NAME} | gzip > {backup_file}", shell=True)
-
-# Más código para rotación y notificación...
-</code></pre>
-                </div>
-                <div class="flex justify-between items-center">
-                    <a href="#" class="text-green-600 hover:text-green-500 font-semibold flex items-center">
-                        <span>Ver script completo</span>
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    <a href="#" class="text-gray-600 hover:text-green-600">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Tarjetas de herramientas -->
     <h3 class="text-2xl font-bold mb-6">Herramientas que domino</h3>
@@ -669,9 +675,6 @@ subprocess.run(f"mysqldump {DB_NAME} | gzip > {backup_file}", shell=True)
             </div>
         </article>
     </div>
-</section>
-
-
         <!-- Botón para ver más proyectos -->
         <div class="text-center mt-12">
             <a href="https://github.com/AlbertoTrujillo1" class="inline-block bg-blue-600 text-white py-3 px-8 rounded-lg hover:bg-blue-500 transition duration-300">
@@ -688,33 +691,78 @@ subprocess.run(f"mysqldump {DB_NAME} | gzip > {backup_file}", shell=True)
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Técnico Superior en ASIR -->
             <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
                 <div class="flex items-start space-x-4">
                     <div class="bg-blue-100 p-3 rounded-lg">
-                        <i class="fas fa-certificate text-3xl text-blue-600"></i>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/School_icon.svg" alt="ASIR" class="w-12 h-12">
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold mb-2">Técnico Superior en Administración de Sistemas Informáticos en Red</h3>
-                        <p class="text-gray-600 mb-2">Institut Tecnológic de Barcelona</p>
-                        <p class="text-gray-500">2024 - En curso</p>
+                        <p class="text-gray-600 mb-2">Institut Tecnològic de Barcelona</p>
+                        <p class="text-gray-500">Q4 2024 - Actualidad</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Técnico en SMX -->
             <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
                 <div class="flex items-start space-x-4">
                     <div class="bg-green-100 p-3 rounded-lg">
-                        <i class="fas fa-certificate text-3xl text-green-600"></i>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/School_icon.svg" alt="SMX" class="w-12 h-12">
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold mb-2">Tecnico Auxiliar en Redes y Microinformatica</h3>
-                        <p class="text-gray-600 mb-2">Institut Tecnologic de Barcelona</p>
-                        <p class="text-gray-500">2022 - 2024</p>
+                        <h3 class="text-xl font-semibold mb-2">Técnico en Sistemas Microinformáticos y Redes</h3>
+                        <p class="text-gray-600 mb-2">Institut Tecnològic de Barcelona</p>
+                        <p class="text-gray-500">Q4 2022 - Q3 2024</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AWS Cloud Quest: Cloud Practitioner -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                <div class="flex items-start space-x-4">
+                    <div class="bg-yellow-100 p-3 rounded-lg">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" class="w-12 h-12">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">AWS Cloud Quest: Cloud Practitioner</h3>
+                        <p class="text-gray-600 mb-2">Amazon Web Services</p>
+                        <p class="text-gray-500">2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cisco Introduction to Cybersecurity -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                <div class="flex items-start space-x-4">
+                    <div class="bg-blue-100 p-3 rounded-lg">
+                        <img src="https://imgs.search.brave.com/3PlGNnnKLySCmtp5D73_rAeA4MoRK70qh0F4N1RbQd0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9j/L2NmL0Npc2NvX2xv/Z28tMTAwMHB4LnBu/Zw" alt="Cisco" class="w-12 h-12">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Cisco Introduction to Cybersecurity</h3>
+                        <p class="text-gray-600 mb-2">Cisco Networking Academy</p>
+                        <p class="text-gray-500">2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cisco Networking Basics -->
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                <div class="flex items-start space-x-4">
+                    <div class="bg-red-100 p-3 rounded-lg">
+                        <img src="https://imgs.search.brave.com/3PlGNnnKLySCmtp5D73_rAeA4MoRK70qh0F4N1RbQd0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9j/L2NmL0Npc2NvX2xv/Z28tMTAwMHB4LnBu/Zw" alt="Cisco" class="w-12 h-12">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Cisco Networking Basics</h3>
+                        <p class="text-gray-600 mb-2">Cisco Networking Academy</p>
+                        <p class="text-gray-500">2024</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Sección de contacto mejorada -->
     <section id="contacto" class="bg-white py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
