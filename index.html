@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Portafolio de Alberto Trujillo: SysAdmin, Técnico Informático y Desarrollador Freelance. Experticia en backend PHP, frontend HTML/CSS/JavaScript, redes y seguridad informática.">
@@ -9,168 +8,981 @@
     <meta name="author" content="Alberto Trujillo">
     <meta property="og:title" content="Alberto Trujillo - SysAdmin | Desarrollo Web y Seguridad Informática">
     <meta property="og:description" content="Descubre mi experiencia como técnico informático, administrador de sistemas y desarrollador freelance en proyectos backend y frontend. Especializado en seguridad informática y cloud computing.">
-    <meta property="og:image" href="assets/images/logo.png">
+    <meta property="og:image" content="assets/images/logo.png">
     <meta property="og:url" content="https://atrujillo.blog">
     <meta property="og:type" content="website">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alberto Trujillo - SysAdmin </title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="src/css/styles_def.css" rel="stylesheet">
+    <title>Alberto Trujillo - SysAdmin & Desarrollador</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
+    <style>
+        /* Estilos personalizados */
+        .skill-progress {
+            height: 10px;
+            border-radius: 5px;
+            background: #e2e8f0;
+            overflow: hidden;
+        }
+        .skill-bar {
+            height: 100%;
+            transition: width 1.5s ease-in-out;
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .scroll-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        body.dark {
+            background-color: #121826;
+            color: #e2e8f0;
+        }
+        body.dark .bg-white {
+            background-color: #1f2937;
+        }
+        body.dark .bg-gray-50,
+        body.dark .bg-gray-100 {
+            background-color: #283142;
+            color: #e2e8f0;
+        }
+        body.dark .text-black,
+        body.dark .text-gray-700,
+        body.dark .text-gray-800 {
+            color: #e2e8f0;
+        }
+        body.dark .border {
+            border-color: #4b5563;
+        }
+    </style>
 </head>
 
-<body id="body" class="bg-white text-black">
+<body id="body" class="bg-white text-black transition-colors duration-300">
+    <!-- Barra de navegación fija -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+                <a href="#" class="text-xl font-bold  text-white-600 flex items-center">
+                <img src="assets/images/logo.png" alt="Logo" class="h-8 w-8 mr-2">
+                <span>Alberto Trujillo</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#sobre-mi" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Sobre Mí</a>
+                <a href="#habilidades" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Habilidades</a>
+                <a href="#proyectos" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Proyectos</a>
+                <a href="#certificaciones" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Certificaciones</a>
+                <a href="#contacto" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Contacto</a>
+            </div>
+            <!-- Menú móvil -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute top-full left-0 right-0 transition-all duration-300">
+        <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
+            <a href="#sobre-mi" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Sobre Mí</a>
+            <a href="#habilidades" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Habilidades</a>
+            <a href="#proyectos" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Proyectos</a>
+            <a href="#certificaciones" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Certificaciones</a>
+            <a href="#contacto" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Contacto</a>
+        </div>
+    </div>
+
+    <!-- Script para el menú móvil -->
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
 
     <!-- Botón de cambio de modo -->
-    <button id="dark-mode-toggle" class="fixed top-4 right-4 p-3 rounded-full bg-blue-200 text-gray-800 shadow-lg transition-all duration-300 hover:bg-blue-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-600" aria-label="Activar modo oscuro">
+    <button id="dark-mode-toggle" class="fixed top-20 right-4 p-3 rounded-full bg-blue-200 text-gray-800 shadow-lg transition-all duration-300 hover:bg-blue-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-600" aria-label="Activar modo oscuro">
         <i id="dark-mode-icon" class="fas fa-moon"></i>
     </button>
 
-    <!-- Hero Section (Imagen principal) -->
-    <section id="hero-background" class="relative h-screen bg-cover bg-center transition-all duration-500"
-        style="background-image: url('assets/images/fons.jpg');">
-        <div class="absolute inset-0 bg-blue-950 opacity-40 transition-opacity duration-500 dark:bg-blue-800 dark:opacity-50"></div>
-        <div class="flex flex-col items-center justify-center h-full text-center text-white relative z-10">
-            <h1 class="text-5xl font-semibold mb-4 transition-all duration-500 dark:text-gray-100">Hola, soy Alberto Trujillo</h1>
-            <p class="text-xl mb-6 transition-all duration-500 dark:text-gray-300">SysAdmin</p>
-            <a href="assets/docs/cv.pdf" download class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-500 transition duration-300 dark:bg-blue-400 dark:hover:bg-blue-300">
-                Descargar CV
+    <!-- Hero Section mejorado -->
+    <section id="hero-background" class="relative h-screen bg-cover bg-center transition-all duration-500" style="background-image: url('assets/images/fons.jpg');">
+        <div class="absolute inset-0 bg-blue-950 opacity-40 transition-opacity duration-500 dark:bg-blue-800 dark:opacity-60"></div>
+        <div class="flex flex-col items-center justify-center h-full text-center text-white relative z-10 px-4">
+            <!-- Nombre con fondo blanco -->
+            <h1 class="text-5xl font-bold mb-4 transition-all duration-500 dark:text-white text-black py-2 px-6 rounded-lg">
+                Alberto Trujillo
+            </h1>
+
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4 mb-6">
+                <span class="bg-blue-600 bg-opacity-80 py-1 px-4 rounded-full text-lg">SysAdmin</span>
+                <span class="bg-green-600 bg-opacity-80 py-1 px-4 rounded-full text-lg">Desarrollador Web</span>
+                <span class="bg-red-600 bg-opacity-80 py-1 px-4 rounded-full text-lg">Seguridad Informática</span>
+            </div>
+            <p class="text-xl max-w-2xl mb-8 transition-all duration-500 dark:text-gray-300">
+                Transformando ideas en soluciones tecnológicas seguras y eficientes
+            </p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <!-- Botón Descargar CV -->
+                <a href="assets/docs/AlbertoTrujillo.pdf" download class="bg-green-600 text-white py-3 px-8 rounded-lg hover:bg-green-500 transition duration-300 dark:bg-green-800 dark:hover:bg-green-700 flex items-center justify-center">
+                    <i class="fas fa-download mr-2"></i> Descargar CV
+                </a>
+
+                <!-- Botón Contactar -->
+                <a href="#contacto" class="bg-blue-600 border-2 border-blue-600 text-white py-3 px-8 rounded-lg hover:bg-white hover:text-blue-800 transition duration-300 flex items-center justify-center dark:bg-blue-800 dark:border-blue-800 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
+                    <i class="fas fa-envelope mr-2"></i> Contactar
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
+            <a href="#sobre-mi" class="text-white text-4xl">
+                <i class="fas fa-chevron-down"></i>
             </a>
         </div>
     </section>
 
-    <!-- Sección "Sobre Mí" -->
-    <section id="sobre-mi" class="bg-white py-16 px-6 md:px-12 rounded-lg shadow-xl w-full mx-auto my-12 text-center text-black">
-        <h2 class="text-3xl md:text-4xl font-semibold text-black mb-6">Sobre Mí</h2>
-        <p class="text-lg md:text-xl text-gray-700 mb-4 leading-relaxed">
-            Soy estudiante de Administración de Sistemas Informáticos en Red con experiencia en administración de sistemas, redes y ciberseguridad.
-            Me apasiona aprender y aplicar mis habilidades en proyectos prácticos, especialmente en el área de seguridad informática.
-        </p>
-        <p class="text-lg md:text-xl text-gray-700 mb-4 leading-relaxed">
-            En mis tiempos libres, disfruto administrando pequeños servidores Linux y poniendo en práctica mis conocimientos de seguridad, como la configuración de firewalls, gestión de usuarios y permisos, y la protección de redes.
-        </p>
-        <!-- Iconos de Tecnologías -->
-        <div class="flex justify-center space-x-8 mt-6">
-            <div class="text-4xl text-blue-600 hover:text-blue-500 transition-all duration-300"><i class="fas fa-server"></i></div>
-            <div class="text-4xl text-black hover:text-gray-700 transition-all duration-300"><i class="fas fa-shield-alt"></i></div>
-            <div class="text-4xl text-green-500 hover:text-green-400 transition-all duration-300"><i class="fas fa-network-wired"></i></div>
-            <div class="text-4xl text-red-500 hover:text-red-400 transition-all duration-300"><i class="fas fa-fire"></i></div>
-            <div class="text-4xl text-purple-500 hover:text-purple-400 transition-all duration-300"><i class="fab fa-linux"></i></div>
-            <div class="text-4xl text-orange-500 hover:text-orange-400 transition-all duration-300"><i class="fab fa-github"></i></div>
+
+    <!-- Sección "Sobre Mí" mejorada -->
+    <section id="sobre-mi" class="bg-white py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 text-center text-black scroll-animation">
+        <div class="flex flex-col md:flex-row items-center md:items-start md:text-left">
+            <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                <div class="relative">
+                    <div class="bg-blue-600 absolute -inset-1 rounded-lg transform rotate-6"></div>
+                    <img src="/assets/images/Alberto.webp" alt="Alberto Trujillo" class="relative rounded-lg shadow-lg w-64 h-64 object-cover">
+                </div>
+            </div>
+            <div class="md:w-2/3 md:pl-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-black mb-6 flex items-center justify-center md:justify-start">
+                    <span class="bg-blue-600 w-10 h-1 mr-4 hidden md:block"></span>
+                    Sobre Mí
+                </h2>
+                <p class="text-lg md:text-xl text-gray-700 mb-4 leading-relaxed">
+                    Soy estudiante de <span class="font-semibold text-blue-600">Administración de Sistemas Informáticos en Red</span> con experiencia en administración de sistemas, redes y ciberseguridad.
+                    Me apasiona aprender y aplicar mis habilidades en proyectos prácticos, especialmente en el área de seguridad informática.
+                </p>
+                <p class="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
+                    En mis tiempos libres, disfruto administrando pequeños servidores Linux y poniendo en práctica mis conocimientos de seguridad, como la configuración de firewalls, gestión de usuarios y permisos, y la protección de redes.
+                </p>
+
+                <!-- Estadísticas -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                    <div class="p-4 bg-gray-50 rounded-lg shadow-md">
+                        <div class="text-3xl font-bold text-blue-600">Menos de 1</div>
+                        <div class="text-gray-600">Año de Experiencia</div>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg shadow-md">
+                        <div class="text-3xl font-bold text-blue-600">2</div>
+                        <div class="text-gray-600">Proyectos Realizados</div>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg shadow-md">
+                        <div class="text-3xl font-bold text-blue-600">5+</div>
+                        <div class="text-gray-600">Tecnologías Conocidas</div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- Iconos de Tecnologías -->
+        <div class="flex flex-wrap justify-center gap-8 mt-12">
+            <div class="text-4xl text-blue-600 hover:text-blue-500 transition-all duration-300 transform hover:scale-110"><i class="fas fa-server"></i></div>
+            <div class="text-4xl text-black hover:text-gray-700 transition-all duration-300 transform hover:scale-110"><i class="fas fa-shield-alt"></i></div>
+            <div class="text-4xl text-green-500 hover:text-green-400 transition-all duration-300 transform hover:scale-110"><i class="fas fa-network-wired"></i></div>
+            <div class="text-4xl text-red-500 hover:text-red-400 transition-all duration-300 transform hover:scale-110"><i class="fas fa-fire"></i></div>
+            <div class="text-4xl text-purple-500 hover:text-purple-400 transition-all duration-300 transform hover:scale-110"><i class="fab fa-linux"></i></div>
+            <div class="text-4xl text-orange-500 hover:text-orange-400 transition-all duration-300 transform hover:scale-110"><i class="fab fa-github"></i></div>
+            <div class="text-4xl text-blue-400 hover:text-blue-300 transition-all duration-300 transform hover:scale-110"><i class="fab fa-docker"></i></div>
+            <div class="text-4xl text-yellow-500 hover:text-yellow-400 transition-all duration-300 transform hover:scale-110"><i class="fab fa-python"></i></div>
+        </div>
+    </section>
+
+    <!-- Sección "Habilidades Técnicas" mejorada -->
+    <section id="habilidades" class="bg-gray-50 text-black py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
+        <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
+            <span class="mb-2">Habilidades Técnicas</span>
+            <span class="bg-blue-600 w-20 h-1"></span>
+        </h2>
+
+        <!-- Barras de progreso de habilidades -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+            <div>
+                <div class="mb-6">
+                    <div class="flex justify-between mb-1">
+                        <span class="text-lg font-semibold">Desarrollo Web (HTML, CSS, JS, PHP)</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-bar bg-blue-600" style="width: 0%;" data-width="85%"></div>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <div class="flex justify-between mb-1">
+                        <span class="text-lg font-semibold">Administración Linux</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-bar bg-purple-600" style="width: 0%;" data-width="90%"></div>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <div class="flex justify-between mb-1">
+                        <span class="text-lg font-semibold">Redes y Protocolos</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-bar bg-green-600" style="width: 0%;" data-width="80%"></div>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <div class="flex justify-between mb-1">
+                        <span class="text-lg font-semibold">Ciberseguridad</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-bar bg-red-600" style="width: 0%;" data-width="75%"></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="mb-6">
+                    <div class="flex justify-between mb-1">
+                        <span class="text-lg font-semibold">Cloud Computing (AWS, GCP, Azure)</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-bar bg-yellow-500" style="width: 0%;" data-width="70%"></div>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <div class="flex justify-between mb-1">
+                        <span class="text-lg font-semibold">Automatización (Bash, Python)</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-bar bg-indigo-600" style="width: 0%;" data-width="85%"></div>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <div class="flex justify-between mb-1">
+                        <span class="text-lg font-semibold">Bases de Datos (MySQL, PostgreSQL)</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-bar bg-blue-500" style="width: 0%;" data-width="80%"></div>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <div class="flex justify-between mb-1">
+                        <span class="text-lg font-semibold">Docker y Virtualización</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-progress">
+                        <div class="skill-bar bg-blue-400" style="width: 0%;" data-width="75%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjetas de habilidades -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            <div class="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+                <div class="rounded-full bg-blue-100 p-3">
+                    <i class="fas fa-laptop-code text-2xl text-blue-600"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Desarrollo Web</h3>
+                    <p class="text-gray-600">HTML5, PHP, JavaScript, Tailwind CSS, WordPress</p>
+                </div>
+            </div>
+            <div class="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+                <div class="rounded-full bg-green-100 p-3">
+                    <i class="fas fa-network-wired text-2xl text-green-600"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Redes</h3>
+                    <p class="text-gray-600">Configuración LAN, TCP/IP, RIP, OSPF, Cloudflare</p>
+                </div>
+            </div>
+            <div class="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+                <div class="rounded-full bg-gray-100 p-3">
+                    <i class="fab fa-linux text-2xl text-gray-800"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Sistemas Linux</h3>
+                    <p class="text-gray-600">OpenLDAP, DNS, DHCP, Samba, Apache, Nginx</p>
+                </div>
+            </div>
+            <div class="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+                <div class="rounded-full bg-yellow-100 p-3">
+                    <i class="fas fa-cogs text-2xl text-yellow-600"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Automatización</h3>
+                    <p class="text-gray-600">Bash, Python, PowerShell</p>
+                </div>
+            </div>
+            <div class="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+                <div class="rounded-full bg-purple-100 p-3">
+                    <i class="fas fa-cloud text-2xl text-purple-600"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Cloud Computing</h3>
+                    <p class="text-gray-600">AWS, Google Cloud, Azure</p>
+                </div>
+            </div>
+            <div class="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+                <div class="rounded-full bg-red-100 p-3">
+                    <i class="fas fa-shield-alt text-2xl text-red-600"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-2">Seguridad Informática</h3>
+                    <p class="text-gray-600">Análisis de vulnerabilidades, Hardening, Firewalls</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Idiomas -->
+    <section id="idiomas" class="bg-gray-50 py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
+        <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
+            <span class="mb-2">Idiomas y Comunicación</span>
+            <span class="bg-blue-600 w-20 h-1"></span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Tarjetas de idiomas -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-6">Idiomas</h3>
+
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">Español</span>
+                            <span>Nativo</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-bar bg-blue-600" style="width: 0%;" data-width="100%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">Inglés</span>
+                            <span>Nivel B1</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-bar bg-green-600" style="width: 0%;" data-width="65%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">Catalán</span>
+                            <span>Nativo</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-bar bg-purple-600" style="width: 0%;" data-width="100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de habilidades de comunicación -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-6">Habilidades de Comunicación</h3>
+
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-users text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Comunicación técnica</h4>
+                            <p class="text-gray-600">Capacidad para explicar conceptos técnicos complejos de manera clara y comprensible para usuarios no técnicos.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="bg-green-100 p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-file-alt text-green-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Documentación</h4>
+                            <p class="text-gray-600">Experiencia en crear documentación técnica detallada para sistemas, redes y procedimientos de resolución de problemas.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="bg-purple-100 p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-chalkboard-teacher text-purple-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Formación</h4>
+                            <p class="text-gray-600">Capacidad para diseñar y llevar a cabo sesiones de formación sobre herramientas y procesos técnicos.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="bg-red-100 p-2 rounded-full mr-4 mt-1">
+                            <i class="fas fa-comments text-red-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Comunicación en equipo</h4>
+                            <p class="text-gray-600">Habilidad para colaborar eficazmente con equipos técnicos y no técnicos en proyectos multidisciplinares.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
 
-<!-- Sección "Habilidades Técnicas" -->
-<section id="habilidades" class="bg-gray-50 text-black py-16 px-6 md:px-12 rounded-lg shadow-xl w-full mx-auto my-12">
-    <h2 class="text-3xl font-semibold text-center mb-8">Habilidades Técnicas</h2>
-    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <li class="flex items-center space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-            <i class="fas fa-laptop-code text-3xl text-blue-500"></i>
-            <span class="text-lg"><strong>Desarrollo Web:</strong> HTML5, PHP, JavaScript, Tailwind, WordPress</span>
-        </li>
-        <li class="flex items-center space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-            <i class="fas fa-network-wired text-3xl text-green-500"></i>
-            <span class="text-lg"><strong>Redes:</strong> Configuración de redes LAN, TCP/IP, RIP, OSPF, Cloudflare</span>
-        </li>
-        <li class="flex items-center space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-            <i class="fab fa-linux text-3xl text-black"></i>
-            <span class="text-lg"><strong>Sistemas Linux:</strong> OpenLDAP, DNS, DHCP, Samba, Apache, Nginx</span>
-        </li>
-        <li class="flex items-center space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-            <i class="fas fa-cogs text-3xl text-yellow-500"></i>
-            <span class="text-lg"><strong>Automatización:</strong> Bash, Python, PowerShell</span>
-        </li>
-        <li class="flex items-center space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-            <i class="fas fa-cloud text-3xl text-purple-500"></i>
-            <span class="text-lg"><strong>Cloud Computing:</strong> AWS, Google Cloud, Azure</span>
-        </li>
-        <li class="flex items-center space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-            <i class="fab fa-github text-3xl text-black"></i>
-            <span class="text-lg"><strong>Gestión de Proyectos:</strong> Git, GitHub, GitLab, Jira</span>
-        </li>
-        <li class="flex items-center space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-            <i class="fas fa-hammer text-3xl text-red-500"></i>
-            <span class="text-lg"><strong>Reparaciones:</strong> Diagnóstico y reparación de equipos informáticos</span>
-        </li>
-        <li class="flex items-center space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-            <i class="fas fa-database text-3xl text-blue-600"></i>
-            <span class="text-lg"><strong>Bases de Datos:</strong> MySQL, PostgreSQL</span>
-        </li>
-        <li class="flex items-center space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-            <i class="fas fa-shield-alt text-3xl text-green-600"></i>
-            <span class="text-lg"><strong>Seguridad Informatica:</strong> Análisis de vulnerabilidades, Hardening de sistemas, Firewalls, IDS/IPS</span>
-        </li>
-    </ul>
+    <!-- Sección de Herramientas y Scripts -->
+<section id="herramientas" class="bg-gray-50 text-black py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
+    <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
+        <span class="mb-2">Herramientas y Scripts</span>
+        <span class="bg-blue-600 w-20 h-1"></span>
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <!-- Tarjeta de Script 1 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold text-blue-600">Monitor de Recursos Shell</h3>
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Bash</span>
+                </div>
+                <p class="text-gray-700 mb-4">Script para monitorizar recursos del sistema en tiempo real con alertas por email cuando se alcanzan umbrales críticos.</p>
+                <div class="bg-gray-100 p-4 rounded-lg mb-4 overflow-x-auto">
+                    <pre class="text-sm"><code>#!/bin/bash
+# monitor_recursos.sh
+# Monitoriza CPU, Memoria y Disco
+THRESHOLD_CPU=90
+THRESHOLD_MEM=85
+THRESHOLD_DISK=90
+
+# Comprobar uso de CPU
+CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d. -f1)
+if [ "$CPU_USAGE" -gt "$THRESHOLD_CPU" ]; then
+    echo "ALERTA: Uso de CPU al $CPU_USAGE%" | mail -s "Alerta de Servidor" admin@example.com
+fi
+
+# Más código...
+</code></pre>
+                </div>
+                <div class="flex justify-between items-center">
+                    <a href="#" class="text-blue-600 hover:text-blue-500 font-semibold flex items-center">
+                        <span>Ver script completo</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta de Script 2 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-semibold text-green-600">Backup Automatizado</h3>
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Python</span>
+                </div>
+                <p class="text-gray-700 mb-4">Script de Python para realizar backups automáticos de bases de datos MySQL y archivos críticos, con rotación de copias y compresión.</p>
+                <div class="bg-gray-100 p-4 rounded-lg mb-4 overflow-x-auto">
+                    <pre class="text-sm"><code>#!/usr/bin/env python3
+# backup_script.py
+import os
+import datetime
+import subprocess
+import shutil
+
+# Configuración
+BACKUP_DIR = "/backups"
+DB_NAME = "mi_base_datos"
+KEEP_DAYS = 7
+
+# Generar nombre de archivo con fecha
+date_str = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+backup_file = f"{BACKUP_DIR}/db_{DB_NAME}_{date_str}.sql.gz"
+
+# Ejecutar backup de MySQL
+subprocess.run(f"mysqldump {DB_NAME} | gzip > {backup_file}", shell=True)
+
+# Más código para rotación y notificación...
+</code></pre>
+                </div>
+                <div class="flex justify-between items-center">
+                    <a href="#" class="text-green-600 hover:text-green-500 font-semibold flex items-center">
+                        <span>Ver script completo</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-green-600">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarjetas de herramientas -->
+    <h3 class="text-2xl font-bold mb-6">Herramientas que domino</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div class="bg-white p-4 rounded-lg shadow flex flex-col items-center hover:shadow-lg transition-shadow">
+            <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-3">
+                <i class="fas fa-terminal text-2xl text-blue-600"></i>
+            </div>
+            <h4 class="font-semibold text-center">Ansible</h4>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow flex flex-col items-center hover:shadow-lg transition-shadow">
+            <div class="w-16 h-16 flex items-center justify-center bg-purple-100 rounded-full mb-3">
+                <i class="fas fa-network-wired text-2xl text-purple-600"></i>
+            </div>
+            <h4 class="font-semibold text-center">Wireshark</h4>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow flex flex-col items-center hover:shadow-lg transition-shadow">
+            <div class="w-16 h-16 flex items-center justify-center bg-green-100 rounded-full mb-3">
+                <i class="fas fa-shield-alt text-2xl text-green-600"></i>
+            </div>
+            <h4 class="font-semibold text-center">Nmap</h4>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow flex flex-col items-center hover:shadow-lg transition-shadow">
+            <div class="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-full mb-3">
+                <i class="fas fa-code-branch text-2xl text-gray-600"></i>
+            </div>
+            <h4 class="font-semibold text-center">Git</h4>
+        </div>
+    </div>
 </section>
 
-    <!-- Sección "Proyectos" -->
-    <section id="proyectos" class="bg-white py-16 px-6 md:px-12 rounded-lg shadow-xl w-full mx-auto my-12">
-        <h2 class="text-3xl font-semibold text-center mb-8">Mis Proyectos Destacados</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <article class="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h3 class="text-xl font-semibold text-blue-600 mb-4">Muntrume Motorsport</h3>
-                <p class="text-gray-700 mb-4">Desarrollo y administración de un sitio web para el equipo Muntrume Motorsport. Implementación de backend con PHP y MySQL, gestión de usuarios y seguridad de datos. Optimización del rendimiento del servidor y aseguramiento de la integridad de la base de datos.</p>
-                <a href="https://github.com/AlbertoTrujillo1/muntrume" class="text-blue-600 hover:text-blue-500 font-semibold">Ver Proyecto</a>
+
+    <!-- Sección "Proyectos" mejorada -->
+    <section id="proyectos" class="bg-white py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
+        <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
+            <span class="mb-2">Mis Proyectos Destacados</span>
+            <span class="bg-blue-600 w-20 h-1"></span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <article class="project-card bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                <div class="h-48 bg-blue-600 relative overflow-hidden">
+                    <img src="/api/placeholder/400/320" alt="Muntrume Motorsport" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-xl font-semibold text-white mb-1">Muntrume Motorsport</h3>
+                        <div class="flex space-x-2">
+                            <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">PHP</span>
+                            <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">MySQL</span>
+                            <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded">Backend</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-700 mb-4">Desarrollo y administración de un sitio web para el equipo Muntrume Motorsport. Implementación de backend con PHP y MySQL, gestión de usuarios y seguridad de datos.</p>
+                    <div class="flex justify-between items-center mt-6">
+                        <a href="https://github.com/AlbertoTrujillo1/muntrume" class="text-blue-600 hover:text-blue-500 font-semibold flex items-center">
+                            <span>Ver Proyecto</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
             </article>
 
-            <article class="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h3 class="text-xl font-semibold text-blue-600 mb-4">Arducurity</h3>
-                <p class="text-gray-700 mb-4">Desarrollo de una plataforma web utilizando HTML, CSS y MySQL. Aprendizaje de la integración de bases de datos en aplicaciones web y la comunicación de datos entre el frontend y el backend. Enfoque en la seguridad y eficiencia en la gestión de datos.</p>
-                <a href="https://github.com/AlbertoTrujillo-ITB2425/Arducurity" class="text-blue-600 hover:text-blue-500 font-semibold">Ver Proyecto</a>
+            <article class="project-card bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                <div class="h-48 bg-green-600 relative overflow-hidden">
+                    <img src="/api/placeholder/400/320" alt="Arducurity" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-xl font-semibold text-white mb-1">Arducurity</h3>
+                        <div class="flex space-x-2">
+                            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">HTML</span>
+                            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">CSS</span>
+                            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-700 mb-4">Desarrollo de una plataforma web utilizando HTML, CSS y MySQL. Integración de bases de datos en aplicaciones web y comunicación de datos entre el frontend y el backend.</p>
+                    <div class="flex justify-between items-center mt-6">
+                        <a href="https://github.com/AlbertoTrujillo-ITB2425/Arducurity" class="text-blue-600 hover:text-blue-500 font-semibold flex items-center">
+                            <span>Ver Proyecto</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
             </article>
 
-            <article class="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h3 class="text-xl font-semibold text-blue-600 mb-4">App Linux</h3>
-                <p class="text-gray-700 mb-4">
-                    Desarrollo de una aplicación de gestión de procesos para Linux, diseñada para automatizar y facilitar la administración de servicios y procesos en el sistema operativo. Esta aplicación permite a los usuarios iniciar, detener, reiniciar y deshabilitar procesos sin tener que interactuar directamente con la terminal.
-                </p>
-                <a href="https://github.com/AlbertoTrujillo-ITB2425/linux-process-manager/tree/main" class="text-blue-600 hover:text-blue-500 font-semibold">Ver Proyecto</a>
+            <article class="project-card bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                <div class="h-48 bg-purple-600 relative overflow-hidden">
+                    <img src="/api/placeholder/400/320" alt="App Linux" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-xl font-semibold text-white mb-1">App Linux</h3>
+                        <div class="flex space-x-2">
+                            <span class="bg-purple-500 text-white text-xs px-2 py-1 rounded">Linux</span>
+                            <span class="bg-purple-500 text-white text-xs px-2 py-1 rounded">Bash</span>
+                            <span class="bg-purple-500 text-white text-xs px-2 py-1 rounded">Procesos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-700 mb-4">Desarrollo de una aplicación de gestión de procesos para Linux, diseñada para automatizar y facilitar la administración de servicios y procesos en el sistema operativo.</p>
+                    <div class="flex justify-between items-center mt-6">
+                        <a href="https://github.com/AlbertoTrujillo-ITB2425/linux-process-manager/tree/main" class="text-blue-600 hover:text-blue-500 font-semibold flex items-center">
+                            <span>Ver Proyecto</span>
+                            <i class="fas fa-arrow<i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
             </article>
+        </div>
+
+        <!-- Botón para ver más proyectos -->
+        <div class="text-center mt-12">
+            <a href="https://github.com/AlbertoTrujillo1" class="inline-block bg-blue-600 text-white py-3 px-8 rounded-lg hover:bg-blue-500 transition duration-300">
+                <i class="fab fa-github mr-2"></i> Ver más proyectos en GitHub
+            </a>
         </div>
     </section>
 
-    <section id="contacto" class="bg-gray-100 py-16 px-6 md:px-12 rounded-lg shadow-xl w-full mx-auto my-12">
-        <h2 class="text-3xl font-semibold text-center mb-8">Contacto</h2>
-        <p class="text-lg text-gray-700 mb-8 text-center">¿Tienes alguna pregunta o quieres discutir sobre un proyecto? No dudes en ponerte en contacto conmigo.</p>
-        <p class="text-sm text-gray-600 mb-8 text-center">Los datos proporcionados aquí son solo para fines de contacto y no serán compartidos ni filtrados.</p>
-        <div class="flex justify-center">
-            <div class="w-full md:w-1/2">
-                <form action="https://formspree.io/f/xoveqzwd" method="POST">
-                    <div class="mb-4">
-                        <label for="email" class="block text-lg font-semibold text-gray-700">Correo Electrónico:</label>
-                        <input type="email" id="email" name="email" class="w-full p-3 mt-2 border rounded-lg bg-white text-gray-800 shadow-sm" required>
+    <!-- Nueva sección de certificaciones -->
+    <section id="certificaciones" class="bg-gray-50 py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
+        <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
+            <span class="mb-2">Certificaciones y Formación</span>
+            <span class="bg-blue-600 w-20 h-1"></span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                <div class="flex items-start space-x-4">
+                    <div class="bg-blue-100 p-3 rounded-lg">
+                        <i class="fas fa-certificate text-3xl text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Técnico Superior en Administración de Sistemas Informáticos en Red</h3>
+                        <p class="text-gray-600 mb-2">Institut Tecnológic de Barcelona</p>
+                        <p class="text-gray-500">2024 - En curso</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                <div class="flex items-start space-x-4">
+                    <div class="bg-green-100 p-3 rounded-lg">
+                        <i class="fas fa-certificate text-3xl text-green-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Tecnico Auxiliar en Redes y Microinformatica</h3>
+                        <p class="text-gray-600 mb-2">Institut Tecnologic de Barcelona</p>
+                        <p class="text-gray-500">2022 - 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de contacto mejorada -->
+    <section id="contacto" class="bg-white py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
+        <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
+            <span class="mb-2">Contacto</span>
+            <span class="bg-blue-600 w-20 h-1"></span>
+        </h2>
+
+        <div class="flex flex-col lg:flex-row items-stretch shadow-xl rounded-lg overflow-hidden">
+            <div class="bg-blue-600 lg:w-2/5 p-8 text-white">
+                <h3 class="text-2xl font-bold mb-6">Información de Contacto</h3>
+                <p class="mb-8">¿Tienes alguna pregunta o quieres discutir sobre un proyecto? No dudes en ponerte en contacto conmigo a través de cualquiera de estos medios.</p>
+
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-blue-500 p-3 rounded-full">
+                            <i class="fas fa-envelope text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Email</h4>
+                            <p><a href="mailto:atrumin16@gmail.com" class="hover:text-blue-200">atrumin16@gmail.com</a></p>
+                        </div>
                     </div>
 
-                    <div class="mb-4">
-                        <label for="telephone" class="block text-lg font-semibold text-gray-700">Teléfono:</label>
-                        <input type="tel" id="telephone" name="telephone" class="w-full p-3 mt-2 border rounded-lg bg-white text-gray-800 shadow-sm">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-blue-500 p-3 rounded-full">
+                            <i class="fab fa-linkedin text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/in/alberto-trujillo/" class="hover:text-blue-200">linkedin.com/in/alberto-trujillo</a></p>
+                        </div>
                     </div>
 
-                    <div class="mb-4">
-                        <label for="message" class="block text-lg font-semibold text-gray-700">Mensaje:</label>
-                        <textarea id="message" name="message" rows="4" class="w-full p-3 mt-2 border rounded-lg bg-white text-gray-800 shadow-sm" required></textarea>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-blue-500 p-3 rounded-full">
+                            <i class="fab fa-github text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">GitHub</h4>
+                            <p><a href="https://github.com/AlbertoTrujillo1" class="hover:text-blue-200">github.com/AlbertoTrujillo1</a></p>
+                        </div>
                     </div>
-                    <button type="submit" class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-500 transition duration-300 w-full">Enviar Mensaje</button>
+                </div>
+
+                <div class="mt-12">
+                    <h4 class="font-semibold mb-4">Sígueme en:</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-blue-500 hover:bg-blue-400 p-3 rounded-full text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-blue-500 hover:bg-blue-400 p-3 rounded-full text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-blue-500 hover:bg-blue-400 p-3 rounded-full text-white transition duration-300">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-3/5 p-8 bg-white">
+                <h3 class="text-2xl font-bold mb-6 text-gray-800">Envíame un Mensaje</h3>
+                <p class="text-gray-600 mb-8">Los datos proporcionados aquí son solo para fines de contacto y no serán compartidos ni filtrados.</p>
+
+                <form action="https://formspree.io/f/xoveqzwd" method="POST" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+                            <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Asunto</label>
+                        <input type="text" id="subject" name="subject" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" required>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" required></textarea>
+                    </div>
+
+                    <div class="text-right">
+                        <button type="submit" class="bg-blue-600 text-white py-3 px-8 rounded-lg hover:bg-blue-500 transition duration-300">
+                            <i class="fas fa-paper-plane mr-2"></i> Enviar Mensaje
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white text-center py-4 mt-12">
-        <p>&copy; 2025 Alberto Trujillo</p>
-        <p>Contacto: <a href="mailto:atrumin16@gmail.com" class="text-blue-400 hover:text-blue-300">atrumin16@gmail.com</a></p>
-        <div class="mt-4">
-            <a href="https://github.com/AlbertoTrujillo1" class="text-gray-400 hover:text-gray-200 mx-2"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/alberto-trujillo/" class="text-gray-400 hover:text-gray-200 mx-2"><i class="fab fa-linkedin"></i></a>
+    <!-- Footer mejorado -->
+    <footer class="bg-gray-900 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-4">Alberto Trujillo</h3>
+                    <p class="text-gray-400 mb-4">SysAdmin | Seguridad</p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/AlbertoTrujillo1" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/alberto-trujillo-mingorance-288237266/" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="mailto:atrumin16@gmail.com" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-center md:text-right">
+                    <p class="mb-2">&copy; 2025 Alberto Trujillo. Todos los derechos reservados.</p>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 transition duration-300">Política de Privacidad</a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- Botón de volver arriba -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 p-3 rounded-full bg-blue-600 text-white shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-blue-500">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Scripts -->
-    <script src="src/js/dark_mode.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+    <script>
+        // Menú móvil
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cambio de modo oscuro/claro
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkModeIcon = document.getElementById('dark-mode-icon');
+        const body = document.getElementById('body');
+        const navbar = document.getElementById('navbar');
+        const heroBackground = document.getElementById('hero-background');
+
+        // Verificar si hay una preferencia guardada
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+        // Aplicar el modo al cargar la página
+        if (isDarkMode) {
+            enableDarkMode();
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark')) {
+                disableDarkMode();
+            } else {
+                enableDarkMode();
+            }
+        });
+
+        function enableDarkMode() {
+            body.classList.add('dark');
+            darkModeIcon.classList.remove('fa-moon');
+            darkModeIcon.classList.add('fa-sun');
+            navbar.classList.remove('bg-white');
+            navbar.classList.add('bg-gray-900', 'text-white');
+            localStorage.setItem('darkMode', 'true');
+        }
+
+        function disableDarkMode() {
+            body.classList.remove('dark');
+            darkModeIcon.classList.remove('fa-sun');
+            darkModeIcon.classList.add('fa-moon');
+            navbar.classList.remove('bg-gray-900', 'text-white');
+            navbar.classList.add('bg-white');
+            localStorage.setItem('darkMode', 'false');
+        }
+
+        // Barras de progreso de habilidades
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width;
+            });
+        }
+
+        // Animación de elementos al scroll
+        const scrollAnimations = document.querySelectorAll('.scroll-animation');
+
+        function checkScrollAnimations() {
+            scrollAnimations.forEach(animation => {
+                const animationPosition = animation.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+
+                if (animationPosition < screenPosition) {
+                    animation.classList.add('visible');
+
+                    // Si es la sección de habilidades, animar las barras
+                    if (animation.id === 'habilidades') {
+                        animateSkillBars();
+                    }
+                }
+            });
+        }
+
+        // Botón de volver arriba
+        const backToTopButton = document.getElementById('back-to-top');
+
+        function toggleBackToTopButton() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+                backToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        }
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Navbar scroll effect
+        function handleNavbarScroll() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md', 'py-2');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.remove('shadow-md', 'py-2');
+                navbar.classList.add('py-3');
+            }
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', () => {
+            checkScrollAnimations();
+            toggleBackToTopButton();
+            handleNavbarScroll();
+        });
+
+        // Iniciar animaciones al cargar la página
+        window.addEventListener('load', () => {
+            checkScrollAnimations();
+            toggleBackToTopButton();
+            handleNavbarScroll();
+        });
+
+        // Smooth scroll para anclajes
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Cerrar menú móvil si está abierto
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
