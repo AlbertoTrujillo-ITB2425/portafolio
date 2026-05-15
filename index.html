@@ -3,16 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Portafolio de Alberto Trujillo: SysAdmin, Técnico Informático y Desarrollador Freelance. Experticia en backend PHP, frontend HTML/CSS/JavaScript, redes y seguridad informática.">
-    <meta name="keywords" content="SysAdmin, Técnico Informático, Desarrollador Freelance, Backend PHP, Frontend HTML CSS JavaScript, Redes, Linux, Windows, Ciberseguridad, Cloud Computing, Alberto Trujillo">
+    <meta name="description" content="Portafolio de Alberto Trujillo: Estudiante ASIR y Técnico SMR. Especializado en Administración de Sistemas Linux/Windows, Redes, Automatización (Bash/Python) e Integración de IA Local.">
+    <meta name="keywords" content="ASIR, SMR, SysAdmin, Linux, Windows Server, Active Directory, Bash, Python, Ollama, IA Local, Redes, Cisco, AWS, Jira, Alberto Trujillo">
     <meta name="author" content="Alberto Trujillo">
-    <meta property="og:title" content="Alberto Trujillo - SysAdmin |  Seguridad Informática">
-    <meta property="og:description" content="Descubre mi experiencia como técnico informático, administrador de sistemas y desarrollador freelance en proyectos backend y frontend. Especializado en seguridad informática y cloud computing.">
+    <meta property="og:title" content="Alberto Trujillo - SysAdmin & Network Technician">
+    <meta property="og:description" content="Técnico de Sistemas y Redes. Experiencia en mantenimiento de infraestructuras, automatización de tareas y despliegue de servicios locales.">
     <meta property="og:image" content="assets/images/favicon.ico">
     <meta property="og:url" content="https://atrujillo.blog">
     <meta property="og:type" content="website">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alberto Trujillo - SysAdmin</title>
+    <title>Alberto Trujillo - SysAdmin ASIR</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
@@ -79,6 +79,29 @@
         body.dark .border {
             border-color: #4b5563;
         }
+        /* Estilo específico para timeline */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid #e5e7eb;
+        }
+        .timeline-item:last-child {
+            border-left: 2px solid transparent;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #3B82F6;
+            border: 2px solid white;
+        }
+        body.dark .timeline-item {
+            border-left-color: #4b5563;
+        }
     </style>
 </head>
 
@@ -91,10 +114,10 @@
                 <span>Alberto Trujillo</span>
             </a>
             <div class="hidden md:flex space-x-8">
-                <a href="#sobre-mi" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Sobre Mí</a>
-                <a href="#habilidades" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Habilidades</a>
+                <a href="#experiencia" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Experiencia</a>
+                <a href="#stack" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Stack Técnico</a>
                 <a href="#proyectos" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Proyectos</a>
-                <a href="#certificaciones" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Certificaciones</a>
+                <a href="#formacion" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Formación</a>
                 <a href="#contacto" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Contacto</a>
             </div>
             <!-- Menú móvil -->
@@ -110,10 +133,10 @@
     <!-- Menú móvil desplegable -->
     <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute top-full left-0 right-0 transition-all duration-300">
         <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
-            <a href="#sobre-mi" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Sobre Mí</a>
-            <a href="#habilidades" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Habilidades</a>
+            <a href="#experiencia" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Experiencia</a>
+            <a href="#stack" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Stack Técnico</a>
             <a href="#proyectos" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Proyectos</a>
-            <a href="#certificaciones" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Certificaciones</a>
+            <a href="#formacion" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Formación</a>
             <a href="#contacto" class="text-gray-700 hover:text-blue-600 transition-colors duration-300">Contacto</a>
         </div>
     </div>
@@ -134,635 +157,312 @@
     </button>
 
 
-    <!-- Hero Section mejorado -->
+    <!-- Hero Section Orientado a Sistemas -->
     <section id="hero-background" class="relative h-screen bg-cover bg-center transition-all duration-500" style="background-image: url('assets/images/fons.jpg');">
-        <div class="absolute inset-0 bg-blue-950 opacity-40 transition-opacity duration-500 dark:bg-blue-800 dark:opacity-60"></div>
+        <div class="absolute inset-0 bg-blue-950 opacity-60 transition-opacity duration-500 dark:bg-blue-900 dark:opacity-80"></div>
         <div class="flex flex-col items-center justify-center h-full text-center text-white relative z-10 px-4">
-            <!-- Nombre con fondo blanco -->
-            <h1 class="text-5xl font-bold mb-4 transition-all duration-500 dark:text-white text-black py-2 px-6 rounded-lg">
+            <h1 class="text-5xl font-bold mb-4 transition-all duration-500 dark:text-white text-white py-2 px-6 rounded-lg">
                 Alberto Trujillo
             </h1>
 
             <div class="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4 mb-6">
-                <span class="bg-blue-600 bg-opacity-80 py-1 px-4 rounded-full text-lg">SysAdmin</span>
-                <span class="bg-green-600 bg-opacity-80 py-1 px-4 rounded-full text-lg">Tecnico Informatico </span>
-                <span class="bg-red-600 bg-opacity-80 py-1 px-4 rounded-full text-lg">Seguridad Informática</span>
+                <span class="bg-blue-600 bg-opacity-90 py-1 px-4 rounded-full text-lg font-semibold"><i class="fab fa-linux mr-2"></i>SysAdmin Linux/Windows</span>
+                <span class="bg-purple-600 bg-opacity-90 py-1 px-4 rounded-full text-lg font-semibold"><i class="fas fa-network-wired mr-2"></i>Técnico de Redes</span>
             </div>
-            <p class="text-xl max-w-2xl mb-8 transition-all duration-500 dark:text-gray-300">
-                Transformando ideas en soluciones tecnológicas seguras y eficientes
+            <p class="text-xl max-w-2xl mb-8 transition-all duration-500 dark:text-gray-200 font-light">
+                Especialista en administración de sistemas, automatización con Bash/Python e integración de infraestructuras locales.
             </p>
             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <!-- Botón Descargar CV -->
-                <a href="assets/docs/AlbertoTrujillo.pdf" download class="bg-green-600 text-white py-3 px-8 rounded-lg hover:bg-green-500 transition duration-300 dark:bg-green-800 dark:hover:bg-green-700 flex items-center justify-center">
-                    <i class="fas fa-download mr-2"></i> Descargar CV
+                <a href="assets/docs/AlbertoTrujillo.pdf" download class="bg-green-600 text-white py-3 px-8 rounded-lg hover:bg-green-500 transition duration-300 flex items-center justify-center font-bold shadow-lg">
+                    <i class="fas fa-file-download mr-2"></i> Descargar CV
                 </a>
-
-                <!-- Botón Contactar -->
-                <a href="#contacto" class="bg-blue-600 border-2 border-blue-600 text-white py-3 px-8 rounded-lg hover:bg-white hover:text-blue-800 transition duration-300 flex items-center justify-center dark:bg-blue-800 dark:border-blue-800 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
+                <a href="#contacto" class="bg-transparent border-2 border-white text-white py-3 px-8 rounded-lg hover:bg-white hover:text-blue-900 transition duration-300 flex items-center justify-center font-bold">
                     <i class="fas fa-envelope mr-2"></i> Contactar
                 </a>
             </div>
         </div>
         <div class="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
-            <a href="#sobre-mi" class="text-white text-4xl">
+            <a href="#experiencia" class="text-white text-4xl">
                 <i class="fas fa-chevron-down"></i>
             </a>
         </div>
     </section>
 
-
-    <!-- Sección "Sobre Mí" mejorada -->
-    <section id="sobre-mi" class="bg-white py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 text-center text-black scroll-animation">
-        <div class="flex flex-col md:flex-row items-center md:items-start md:text-left">
-            <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                <div class="relative">
-                    <div class="bg-blue-600 absolute -inset-1 rounded-lg transform rotate-6"></div>
-                    <img src="/assets/images/Alberto.webp" alt="Alberto Trujillo" class="relative rounded-lg shadow-lg w-64 h-64 object-cover">
-                </div>
-            </div>
-            <div class="md:w-2/3 md:pl-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-black mb-6 flex items-center justify-center md:justify-start">
-                    <span class="bg-blue-600 w-10 h-1 mr-4 hidden md:block"></span>
-                    Sobre Mí
-                </h2>
-                <p class="text-lg md:text-xl text-gray-700 mb-4 leading-relaxed">
-                    Soy estudiante de <span class="font-semibold text-blue-600">Administración de Sistemas Informáticos en Red</span> con experiencia en administración de sistemas, redes y ciberseguridad.
-                    Me apasiona aprender y aplicar mis habilidades en proyectos prácticos, especialmente en el área de seguridad informática.
-                </p>
-                <p class="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
-                    En mis tiempos libres, disfruto administrando pequeños servidores Linux y poniendo en práctica mis conocimientos de seguridad, como la configuración de firewalls, gestión de usuarios y permisos, y la protección de redes.
-                </p>
-
-                <!-- Estadísticas -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-                    <div class="p-4 bg-gray-50 rounded-lg shadow-md">
-                        <div class="text-3xl font-bold text-blue-600">Menos de 1</div>
-                        <div class="text-gray-600">Año de Experiencia</div>
-                    </div>
-                    <div class="p-4 bg-gray-50 rounded-lg shadow-md">
-                        <div class="text-3xl font-bold text-blue-600">3</div>
-                        <div class="text-gray-600">Proyectos Realizados</div>
-                    </div>
-                    <div class="p-4 bg-gray-50 rounded-lg shadow-md">
-                        <div class="text-3xl font-bold text-blue-600">5+</div>
-                        <div class="text-gray-600">Tecnologías Conocidas</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Iconos de Tecnologías -->
-        <div class="flex flex-wrap justify-center gap-8 mt-12">
-            <div class="text-4xl text-blue-600 hover:text-blue-500 transition-all duration-300 transform hover:scale-110"><i class="fas fa-server"></i></div>
-            <div class="text-4xl text-black hover:text-gray-700 transition-all duration-300 transform hover:scale-110"><i class="fas fa-shield-alt"></i></div>
-            <div class="text-4xl text-green-500 hover:text-green-400 transition-all duration-300 transform hover:scale-110"><i class="fas fa-network-wired"></i></div>
-            <div class="text-4xl text-red-500 hover:text-red-400 transition-all duration-300 transform hover:scale-110"><i class="fas fa-fire"></i></div>
-            <div class="text-4xl text-purple-500 hover:text-purple-400 transition-all duration-300 transform hover:scale-110"><i class="fab fa-linux"></i></div>
-            <div class="text-4xl text-orange-500 hover:text-orange-400 transition-all duration-300 transform hover:scale-110"><i class="fab fa-github"></i></div>
-            <div class="text-4xl text-blue-400 hover:text-blue-300 transition-all duration-300 transform hover:scale-110"><i class="fab fa-docker"></i></div>
-            <div class="text-4xl text-yellow-500 hover:text-yellow-400 transition-all duration-300 transform hover:scale-110"><i class="fab fa-python"></i></div>
-        </div>
-    </section>
-
-    <!-- Sección "Habilidades Técnicas" mejorada -->
-    <section id="habilidades" class="bg-gray-50 text-black py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
+    <!-- SECCIÓN: Experiencia Profesional -->
+    <section id="experiencia" class="bg-gray-50 py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
         <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
-            <span class="mb-2">Habilidades Técnicas</span>
+            <span class="mb-2">Experiencia Profesional</span>
             <span class="bg-blue-600 w-20 h-1"></span>
         </h2>
 
-        <!-- Barras de progreso de habilidades -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-            <div>
-                <div class="mb-6">
-                    <div class="flex justify-between mb-1">
-                        <span class="text-lg font-semibold">Desarrollo Web (HTML, CSS, JS, PHP)</span>
-                        <span>75%</span>
+        <div class="max-w-4xl mx-auto">
+            <!-- Minsait -->
+            <div class="timeline-item pb-12">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-l-4 border-blue-600">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 text-blue-600 font-bold text-xs">Minsait</div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Técnico de Soporte Informático</h3>
+                                <p class="text-xl text-blue-600 font-semibold">Minsait</p>
+                            </div>
+                        </div>
+                        <span class="mt-2 md:mt-0 bg-blue-100 text-blue-800 px-4 py-1 rounded-full text-sm font-bold self-start">Nov 2025 - May 2026</span>
                     </div>
-                    <div class="skill-progress">
-                        <div class="skill-bar bg-blue-600" style="width: 0%;" data-width="75%"></div>
-                    </div>
-                </div>
-                <div class="mb-6">
-                    <div class="flex justify-between mb-1">
-                        <span class="text-lg font-semibold">Administración Linux</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="skill-bar bg-purple-600" style="width: 0%;" data-width="85%"></div>
-                    </div>
-                </div>
-                <div class="mb-6">
-                    <div class="flex justify-between mb-1">
-                        <span class="text-lg font-semibold">Redes y Protocolos</span>
-                        <span>70%</span>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="skill-bar bg-green-600" style="width: 0%;" data-width="70%"></div>
-                    </div>
-                </div>
-                <div class="mb-6">
-                    <div class="flex justify-between mb-1">
-                        <span class="text-lg font-semibold">Ciberseguridad</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="skill-bar bg-red-600" style="width: 0%;" data-width="75%"></div>
-                    </div>
+                    
+                    <p class="text-gray-600 mb-4 italic"> Usuarios Sanitarios - Entorno Crítico</p>
+                    
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                        <li>Gestión de identidades y accesos en <strong>Active Directory</strong> y ERP <strong>SAP</strong>.</li>
+                        <li>Resolución de incidencias en sistemas críticos asegurando la continuidad operativa.</li>
+                        <li>Uso avanzado de herramientas de ticketing (<strong>BMC Remedy</strong>) bajo estrictos SLAs.</li>
+                    </ul>
                 </div>
             </div>
-            <div>
-                <div class="mb-6">
-                    <div class="flex justify-between mb-1">
-                        <span class="text-lg font-semibold">Cloud Computing (AWS, GCP, Azure)</span>
-                        <span>90%</span>
+            
+            <!-- Institut Industria Sostenible -->
+            <div class="timeline-item">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 border-l-4 border-green-600">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div class="flex items-center">
+                             <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4 text-green-600 font-bold text-xs">IISB</div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">Tècnic de Manteniment Informàtic</h3>
+                                <p class="text-xl text-green-600 font-semibold">Institut Indústria Sostenible</p>
+                            </div>
+                        </div>
+                        <span class="mt-2 md:mt-0 bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-bold self-start">May 2023 - Nov 2023</span>
                     </div>
-                    <div class="skill-progress">
-                        <div class="skill-bar bg-yellow-500" style="width: 0%;" data-width="90%"></div>
-                    </div>
-                </div>
-                <div class="mb-6">
-                    <div class="flex justify-between mb-1">
-                        <span class="text-lg font-semibold">Automatización (Bash, Python)</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="skill-bar bg-indigo-600" style="width: 0%;" data-width="85%"></div>
-                    </div>
-                </div>
-                <div class="mb-6">
-                    <div class="flex justify-between mb-1">
-                        <span class="text-lg font-semibold">Bases de Datos (MySQL, PostgreSQL)</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="skill-bar bg-blue-500" style="width: 0%;" data-width="80%"></div>
-                    </div>
-                </div>
-                <div class="mb-6">
-                    <div class="flex justify-between mb-1">
-                        <span class="text-lg font-semibold">Docker y Virtualización</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="skill-progress">
-                        <div class="skill-bar bg-blue-400" style="width: 0%;" data-width="75%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjetas de habilidades -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            <div class="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                <div class="rounded-full bg-blue-100 p-3">
-                    <i class="fas fa-laptop-code text-2xl text-blue-600"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Desarrollo Web</h3>
-                    <p class="text-gray-600">HTML5, PHP, JavaScript, Tailwind CSS, WordPress</p>
-                </div>
-            </div>
-            <div class="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                <div class="rounded-full bg-green-100 p-3">
-                    <i class="fas fa-network-wired text-2xl text-green-600"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Redes</h3>
-                    <p class="text-gray-600">Configuración LAN, TCP/IP, RIP, OSPF, Cloudflare</p>
-                </div>
-            </div>
-            <div class="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                <div class="rounded-full bg-gray-100 p-3">
-                    <i class="fab fa-linux text-2xl text-gray-800"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Sistemas Linux</h3>
-                    <p class="text-gray-600">OpenLDAP, DNS, DHCP, Samba, Apache, Nginx</p>
-                </div>
-            </div>
-            <div class="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                <div class="rounded-full bg-yellow-100 p-3">
-                    <i class="fas fa-cogs text-2xl text-yellow-600"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Automatización</h3>
-                    <p class="text-gray-600">Bash, Python, PowerShell</p>
-                </div>
-            </div>
-            <div class="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                <div class="rounded-full bg-purple-100 p-3">
-                    <i class="fas fa-cloud text-2xl text-purple-600"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Cloud Computing</h3>
-                    <p class="text-gray-600">AWS, Google Cloud, Azure</p>
-                </div>
-            </div>
-            <div class="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
-                <div class="rounded-full bg-red-100 p-3">
-                    <i class="fas fa-shield-alt text-2xl text-red-600"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold mb-2">Seguridad Informática</h3>
-                    <p class="text-gray-600">Análisis de vulnerabilidades, Hardening, Firewalls</p>
+                    
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+                        <li><strong>Administración de SO:</strong> Instalación, configuración y mantenimiento de equipos Windows/Linux.</li>
+                        <li><strong>Despliegue Masivo:</strong> Clonación de discos y sistemas mediante <strong>Clonezilla</strong>.</li>
+                        <li><strong>Hardware:</strong> Montaje, reparación y mantenimiento preventivo de infraestructura física.</li>
+                        <li><strong>Seguridad Básica:</strong> Implementación de políticas de seguridad en red local.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Idiomas -->
-    <section id="idiomas" class="bg-gray-50 py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
+    <!-- SECCIÓN: Stack Técnico y Habilidades (Core ASIR) -->
+    <section id="stack" class="bg-white py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
         <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
-            <span class="mb-2">Idiomas y Comunicación</span>
+            <span class="mb-2">Competencias Técnicas</span>
             <span class="bg-blue-600 w-20 h-1"></span>
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Tarjetas de idiomas -->
-            <div class="bg-white p-6 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold mb-6">Idiomas</h3>
-
-                <div class="space-y-6">
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="font-semibold">Español</span>
-                            <span>Nativo</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-bar bg-blue-600" style="width: 0%;" data-width="100%"></div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="font-semibold">Inglés</span>
-                            <span>Nivel B1</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-bar bg-green-600" style="width: 0%;" data-width="65%"></div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <span class="font-semibold">Catalán</span>
-                            <span>Nativo</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-bar bg-purple-600" style="width: 0%;" data-width="100%"></div>
-                        </div>
-                    </div>
+            <!-- Sistemas Operativos -->
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <div class="flex items-center mb-4">
+                    <i class="fab fa-linux text-3xl text-gray-800 mr-3"></i>
+                    <i class="fab fa-windows text-3xl text-blue-600 mr-3"></i>
+                    <h3 class="text-xl font-bold">Sistemas Operativos</h3>
                 </div>
+                <ul class="space-y-2 text-gray-700">
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Instalación, configuración y Hardening (Linux/Windows).</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Gestión de usuarios, permisos y políticas de seguridad.</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Servicios de Directorio: <strong>Active Directory, Samba, LDAP</strong>.</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Administración remota (SSH, RDP, PowerShell).</li>
+                </ul>
             </div>
 
-            <!-- Tarjeta de habilidades de comunicación -->
-            <div class="bg-white p-6 rounded-lg shadow-lg">
-                <h3 class="text-2xl font-bold mb-6">Habilidades de Comunicación</h3>
-
-                <div class="space-y-4">
-                    <div class="flex items-start">
-                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
-                            <i class="fas fa-users text-blue-600"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Comunicación técnica</h4>
-                            <p class="text-gray-600">Capacidad para explicar conceptos técnicos complejos de manera clara y comprensible para usuarios no técnicos.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start">
-                        <div class="bg-green-100 p-2 rounded-full mr-4 mt-1">
-                            <i class="fas fa-file-alt text-green-600"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Documentación</h4>
-                            <p class="text-gray-600">Experiencia en crear documentación técnica detallada para sistemas, redes y procedimientos de resolución de problemas.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start">
-                        <div class="bg-purple-100 p-2 rounded-full mr-4 mt-1">
-                            <i class="fas fa-chalkboard-teacher text-purple-600"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Formación</h4>
-                            <p class="text-gray-600">Capacidad para diseñar y llevar a cabo sesiones de formación sobre herramientas y procesos técnicos.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start">
-                        <div class="bg-red-100 p-2 rounded-full mr-4 mt-1">
-                            <i class="fas fa-comments text-red-600"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Comunicación en equipo</h4>
-                            <p class="text-gray-600">Habilidad para colaborar eficazmente con equipos técnicos y no técnicos en proyectos multidisciplinares.</p>
-                        </div>
-                    </div>
+            <!-- Redes -->
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-network-wired text-3xl text-orange-500 mr-3"></i>
+                    <h3 class="text-xl font-bold">Redes & Conectividad</h3>
                 </div>
+                <ul class="space-y-2 text-gray-700">
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Configuración LAN/WAN, VLANs y Switching.</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Enrutamiento estático y dinámico (<strong>RIP, OSPF, NAT</strong>).</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Servicios de Red: DNS, DHCP, Apache/Nginx.</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Subnetting y protocolos TCP/IP.</li>
+                </ul>
+            </div>
+
+            <!-- Automatización y Scripting -->
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-terminal text-3xl text-purple-600 mr-3"></i>
+                    <h3 class="text-xl font-bold">Automatización & DevOps</h3>
+                </div>
+                <ul class="space-y-2 text-gray-700">
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Scripting avanzado: <strong>Bash</strong> y <strong>Python</strong>.</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Gestión de configuración con <strong>Ansible</strong>.</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Control de versiones: <strong>Git / GitHub</strong>.</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Virtualización: Proxmox, VirtualBox, Docker básico.</li>
+                </ul>
+            </div>
+
+            <!-- Bases de Datos & Cloud -->
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-database text-3xl text-blue-500 mr-3"></i>
+                    <i class="fas fa-cloud text-3xl text-yellow-500 ml-3 mr-3"></i>
+                    <h3 class="text-xl font-bold">Datos & Cloud</h3>
+                </div>
+                <ul class="space-y-2 text-gray-700">
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Administración BBDD: <strong>MySQL, PostgreSQL</strong>.</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Cloud Computing: Conocimientos básicos en <strong>AWS</strong>.</li>
+                    <li><i class="fas fa-check text-green-500 mr-2"></i>Gestión de tickets: <strong>Jira</strong>, BMC Remedy.</li>
+                </ul>
             </div>
         </div>
     </section>
 
-<!-- Sección de Herramientas y Scripts -->
-<section id="herramientas" class="bg-gray-50 text-black py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
-    <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
-        <span class="mb-2">Herramientas y Scripts</span>
-        <span class="bg-blue-600 w-20 h-1"></span>
-    </h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <!-- Tarjeta de Script 1 (Windows - PowerShell) -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-xl font-semibold text-blue-600">Creación de Usuarios CSV</h3>
-                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">PowerShell</span>
-                </div>
-                <p class="text-gray-700 mb-4">Script en PowerShell para crear usuarios a partir de un archivo CSV y asignarles un directorio personal en Windows.</p>
-                <div class="bg-gray-100 p-4 rounded-lg mb-4 overflow-x-auto">
-                    <pre class="text-sm"><code># Author: Alberto Trujillo
-# Description: Crear usuarios desde un CSV
-$csvFilePath = "C:\Users\AlbertoT\Desktop\scripts\csv\users.csv"
-if (-Not (Test-Path $csvFilePath)) { Write-Host "Error: El archivo no existe." -ForegroundColor Red; exit }
-Import-Csv $csvFilePath -Header UserName, Directory | ForEach-Object {
-    if (-Not (Get-LocalUser -Name $_.UserName -ErrorAction SilentlyContinue)) {
-        New-LocalUser -Name $_.UserName -NoPassword
-        Write-Host "Usuario '$($_.UserName)' creado." -ForegroundColor Green
-    }
-    if (-Not (Test-Path $_.Directory)) {
-        New-Item -Path $_.Directory -ItemType Directory
-        Write-Host "Directorio '$($_.Directory)' creado." -ForegroundColor Green
-    }
-}</code></pre>
-                </div>
-                <div class="flex justify-between items-center">
-                    <a href="https://github.com/AlbertoTrujillo-ITB2425/scripts-1ASIXc/blob/main/PS1/E10.ps1" class="text-blue-600 hover:text-blue-500 font-semibold flex items-center">
-                        <span>Ver script completo</span>
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    <a href="https://github.com/AlbertoTrujillo-ITB2425/scripts-1ASIXc/blob/main/PS1/E10.ps1" class="text-gray-600 hover:text-blue-600">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjeta de Script 2 (Linux - Bash) -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-xl font-semibold text-green-600">Creación de Máquinas en AWS</h3>
-                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Bash</span>
-                </div>
-                <p class="text-gray-700 mb-4">Script en Bash para crear instancias EC2 en AWS a partir de un archivo CSV en Linux.</p>
-                <div class="bg-gray-100 p-4 rounded-lg mb-4 overflow-x-auto">
-                    <pre class="text-sm"><code>#!/bin/bash
-# Script para crear máquinas en AWS
-CSV_FILE="maquinas.csv"
-while IFS=, read -r instance_type ami security_group instance_label
-do
-    echo "Creando la máquina $instance_label..."
-    aws ec2 run-instances --image-id "$ami" --instance-type "$instance_type" --security-group-ids "$security_group" --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instance_label}]"
-done < "$CSV_FILE"
-echo "Máquinas creadas correctamente."</code></pre>
-                </div>
-                <div class="flex justify-between items-center">
-                    <a href="https://github.com/AlbertoTrujillo-ITB2425/scripts-1ASIXc/blob/main/Bash/create-ec2.sh" class="text-green-600 hover:text-green-500 font-semibold flex items-center">
-                        <span>Ver script completo</span>
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    <a href="https://github.com/AlbertoTrujillo-ITB2425/scripts-1ASIXc/blob/main/Bash/create-ec2.sh" class="text-gray-600 hover:text-green-600">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <p class="text-center text-white-600 mb-12">Todos mis scripts están disponibles en <a href="https://github.com/AlbertoTrujillo-ITB2425/scripts-1ASIXc" class="text-blue-600 hover:text-blue-500">GitHub</a></p>
-
-    <!-- Tarjetas de herramientas -->
-    <h3 class="text-2xl font-bold mb-6">Herramientas que domino</h3>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        <div class="bg-white p-4 rounded-lg shadow flex flex-col items-center hover:shadow-lg transition-shadow">
-            <div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mb-3">
-                <i class="fas fa-terminal text-2xl text-blue-600"></i>
-            </div>
-            <h4 class="font-semibold text-center">Ansible</h4>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow flex flex-col items-center hover:shadow-lg transition-shadow">
-            <div class="w-16 h-16 flex items-center justify-center bg-purple-100 rounded-full mb-3">
-                <i class="fas fa-network-wired text-2xl text-purple-600"></i>
-            </div>
-            <h4 class="font-semibold text-center">Wireshark</h4>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow flex flex-col items-center hover:shadow-lg transition-shadow">
-            <div class="w-16 h-16 flex items-center justify-center bg-green-100 rounded-full mb-3">
-                <i class="fas fa-shield-alt text-2xl text-green-600"></i>
-            </div>
-            <h4 class="font-semibold text-center">Nmap</h4>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow flex flex-col items-center hover:shadow-lg transition-shadow">
-            <div class="w-16 h-16 flex items-center justify-center bg-gray-100 rounded-full mb-3">
-                <i class="fas fa-code-branch text-2xl text-gray-600"></i>
-            </div>
-            <h4 class="font-semibold text-center">Git</h4>
-        </div>
-    </div>
-</section>
-
-
-
-<!-- Sección "Proyectos" mejorada -->
-<section id="proyectos" class="bg-white py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
-    <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
-        <span class="mb-2">Mis Proyectos Destacados</span>
-        <span class="bg-blue-600 w-20 h-1"></span>
-    </h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Proyecto Gestion PHP & MYSQL -->
-        <article class="project-card bg-gray-50 rounded-lg shadow-lg overflow-hidden">
-            <div class="h-40 bg-green-600 relative overflow-hidden">
-                <img src="https://g5-projecte-1-asixc2b.free.nf/favicon.png" alt="PHP + MYSQL" class="w-full h-48 object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 class="text-xl font-semibold text-white mb-1">Gestion de usuarios php & mysql</h3>
-                    <div class="flex space-x-2">
-                        <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">PHP</span>
-                        <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">MySQL</span>
-                        <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Tailwind CSS</span>
-                    </div>
-                </div>
-            </div>
-            <div class="p-6">
-                <p class="text-gray-700 mb-4">Desarrollo y administración de un pequeño proyecto que muesta crea edita y elimina usuarios de ua base de datos mysql  Implementación de backend con PHP y MySQL, gestión de usuarios y seguridad de datos.</p>
-                <div class="flex justify-between items-center mt-6">
-                    <a href="https://g5-projecte-1-asixc2b.free.nf" class="text-blue-600 hover:text-blue-500 font-semibold flex items-center">
-                        <span>Ver Proyecto</span>
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    <a href="https://github.com/AlbertoTrujillo-ITB2425/G5-Projecte-1-ASIXc2B-" class="text-gray-600 hover:text-blue-600">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Proyecto Arducurity -->
-        <article class="project-card bg-gray-50 rounded-lg shadow-lg overflow-hidden">
-            <div class="h-40 bg-orange-600 relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 class="text-xl font-semibold text-white mb-1">Arducurity</h3>
-                    <div class="flex space-x-2">
-                        <span class="bg-orange-500 text-white text-xs px-2 py-1 rounded">HTML</span>
-                        <span class="bg-orange-500 text-white text-xs px-2 py-1 rounded">CSS</span>
-                        <span class="bg-orange-500 text-white text-xs px-2 py-1 rounded">MySQL</span>
-                    </div>
-                </div>
-            </div>
-            <div class="p-6">
-                <p class="text-gray-700 mb-4">
-                    Desarrollo de una plataforma web utilizando HTML, CSS y MySQL. Integración de bases de datos en aplicaciones web y comunicación de datos entre el frontend y el backend.
-                </p>
-                <div class="flex justify-between items-center mt-6">
-                    <a href="https://drive.google.com/uc?export=download&id=19RLFO1T8xkzofLJcCDrShMd4pBmBMFC-" class="text-blue-600 hover:text-blue-500 font-semibold flex items-center">
-                        <span>Ver proyecto</span>
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    <a href="https://github.com/AlbertoTrujillo-ITB2425/Arducurity" class="text-gray-600 hover:text-blue-600">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Proyecto ERP Frutería VendemosNaranjasYMas -->
-        <article class="project-card bg-gray-50 rounded-lg shadow-lg overflow-hidden">
-            <div class="h-40 bg-purple-600 relative overflow-hidden">
-                <img src="https://edu-itb-vendemosnaranjasymas.odoo.com/web/image/website/1/logo/Vendemos%20Naranjas?unique=ed2ff53" alt="Vendemos NaranjasYMas" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 class="text-xl font-semibold text-white mb-1">ERP Frutería VendemosNaranjasYMas</h3>
-                    <div class="flex space-x-2">
-                        <span class="bg-purple-500 text-white text-xs px-2 py-1 rounded">ERP</span>
-                        <span class="bg-purple-500 text-white text-xs px-2 py-1 rounded">Odoo</span>
-                        <span class="bg-purple-500 text-white text-xs px-2 py-1 rounded">PostgreSQL</span>
-                    </div>
-                </div>
-            </div>
-            <div class="p-6">
-                <p class="text-gray-700 mb-4">Desarrollo de un sistema ERP para una frutería, con funciones como la gestión de inventarios, ventas y control de productos de manera automatizada.</p>
-                <div class="flex justify-between items-center mt-6">
-                    <a href="https://edu-itb-vendemosnaranjasymas.odoo.com/" class="text-blue-600 hover:text-blue-500 font-semibold flex items-center">
-                        <span>Ver Proyecto</span>
-                        <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    <a href="https://github.com/AlbertoTrujillo-ITB2425/vendemosnaranjas" class="text-gray-600 hover:text-blue-600">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                </div>
-            </div>
-        </article>
-    </div>
-</section>
-
-
-    </div>
-        <!-- Botón para ver más proyectos -->
-        <div class="text-center mt-12">
-            <a href="https://github.com/AlbertoTrujillo-ITB2425" class="inline-block bg-blue-600 text-white py-3 px-8 rounded-lg hover:bg-blue-500 transition duration-300">
-                <i class="fab fa-github mr-2"></i> Ver más proyectos en GitHub
-            </a>
-        </div>
-    </section>
-
-    <!-- Nueva sección de certificaciones -->
-    <section id="certificaciones" class="bg-gray-50 py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
+    <!-- SECCIÓN NUEVA: IA Local y Proyectos de Sistemas -->
+    <section id="proyectos" class="bg-gray-50 py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
         <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
-            <span class="mb-2">Certificaciones y Formación</span>
+            <span class="mb-2">Laboratorio & Proyectos</span>
             <span class="bg-blue-600 w-20 h-1"></span>
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Técnico Superior en ASIR -->
-            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-                <div class="flex items-start space-x-4">
-                    <div class="bg-blue-100 p-3 rounded-lg">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/School_icon.svg" alt="ASIR" class="w-12 h-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Proyecto Estrella: IA Local -->
+            <article class="project-card bg-white rounded-lg shadow-lg overflow-hidden col-span-1 lg:col-span-3 border-t-4 border-purple-600">
+                <div class="p-8">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 flex items-center">
+                                <i class="fas fa-robot text-purple-600 mr-3"></i> Integración de IA Local en Sistemas
+                            </h3>
+                            <p class="text-purple-600 font-semibold mt-1">Ollama · Python · Linux</p>
+                        </div>
+                        <a href="https://github.com/AlbertoTrujillo-ITB2425" class="mt-4 md:mt-0 text-gray-600 hover:text-black">
+                            <i class="fab fa-github text-2xl"></i> Ver Repositorio
+                        </a>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Técnico Superior en Administración de Sistemas Informáticos en Red</h3>
-                        <p class="text-gray-600 mb-2">Institut Tecnològic de Barcelona</p>
-                        <p class="text-gray-500">Q4 2024 - Actualidad</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Técnico en SMX -->
-            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-                <div class="flex items-start space-x-4">
-                    <div class="bg-green-100 p-3 rounded-lg">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/School_icon.svg" alt="SMX" class="w-12 h-12">
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Técnico en Sistemas Microinformáticos y Redes</h3>
-                        <p class="text-gray-600 mb-2">Institut Tecnològic de Barcelona</p>
-                        <p class="text-gray-500">Q4 2022 - Q3 2024</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- AWS Cloud Quest: Cloud Practitioner -->
-            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-                <div class="flex items-start space-x-4">
-                    <div class="bg-yellow-100 p-3 rounded-lg">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" class="w-12 h-12">
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">AWS Cloud Quest: Cloud Practitioner</h3>
-                        <p class="text-gray-600 mb-2">Amazon Web Services</p>
-                        <p class="text-gray-500">2025</p>
+                    <p class="text-gray-700 mb-4 text-lg">
+                        Despliegue y optimización de Modelos de Lenguaje Grande (LLMs) en entornos locales seguros sin conexión a internet.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        <div class="bg-gray-100 p-4 rounded">
+                            <h4 class="font-bold mb-2">Tecnologías</h4>
+                            <p class="text-sm">Ollama, Llama3/Mistral, Python scripts para interacción API.</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded">
+                            <h4 class="font-bold mb-2">Objetivo</h4>
+                            <p class="text-sm">Privacidad de datos y asistencia técnica offline mediante RAG (Retrieval-Augmented Generation).</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded">
+                            <h4 class="font-bold mb-2">Infraestructura</h4>
+                            <p class="text-sm">Ejecución sobre servidores Linux con gestión de recursos GPU/CPU.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- Cisco Introduction to Cybersecurity -->
-            <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-                <div class="flex items-start space-x-4">
-                    <div class="bg-blue-100 p-3 rounded-lg">
-                        <img src="https://imgs.search.brave.com/3PlGNnnKLySCmtp5D73_rAeA4MoRK70qh0F4N1RbQd0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9j/L2NmL0Npc2NvX2xv/Z28tMTAwMHB4LnBu/Zw" alt="Cisco" class="w-12 h-12">
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold mb-2">Cisco Introduction to Cybersecurity</h3>
-                        <p class="text-gray-600 mb-2">Cisco Networking Academy</p>
-                        <p class="text-gray-500">2025</p>
-                    </div>
+            <!-- Proyecto Scripts -->
+            <article class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="h-32 bg-gray-800 flex items-center justify-center">
+                    <i class="fas fa-code text-6xl text-green-400"></i>
                 </div>
-            </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Automatización SysAdmin</h3>
+                    <p class="text-gray-600 text-sm mb-4">Colección de scripts para administración diaria.</p>
+                    <ul class="text-sm text-gray-700 list-disc list-inside mb-4">
+                        <li>Backups automáticos (Bash).</li>
+                        <li>Creación masiva de usuarios AD (PowerShell).</li>
+                        <li>Monitorización de recursos (Python).</li>
+                    </ul>
+                    <a href="https://github.com/AlbertoTrujillo-ITB2425/scripts-1ASIXc" class="text-blue-600 font-bold hover:underline">Ver en GitHub &rarr;</a>
+                </div>
+            </article>
 
+            <!-- Proyecto Infraestructura -->
+            <article class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="h-32 bg-blue-900 flex items-center justify-center">
+                    <i class="fas fa-server text-6xl text-blue-300"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Lab Infraestructura</h3>
+                    <p class="text-gray-600 text-sm mb-4">Entorno virtualizado para pruebas de servicios.</p>
+                    <ul class="text-sm text-gray-700 list-disc list-inside mb-4">
+                        <li>Despliegue de SambaAD y LDAP.</li>
+                        <li>Configuración de enrutadores Cisco (Packet Tracer/GNS3).</li>
+                        <li>Servidores Web LAMP/LEMP.</li>
+                    </ul>
+                    <span class="text-xs bg-gray-200 px-2 py-1 rounded">Proxmox</span>
+                    <span class="text-xs bg-gray-200 px-2 py-1 rounded">Cisco</span>
+                </div>
+            </article>
+
+             <!-- Proyecto ERP/DB -->
+             <article class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="h-32 bg-purple-900 flex items-center justify-center">
+                    <i class="fas fa-database text-6xl text-purple-300"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Gestión de Datos</h3>
+                    <p class="text-gray-600 text-sm mb-4">Implementación de ERPs y BBDD.</p>
+                    <ul class="text-sm text-gray-700 list-disc list-inside mb-4">
+                        <li>ERP Odoo para gestión de stock.</li>
+                        <li>Consultas SQL complejas en MySQL/PostgreSQL.</li>
+                    </ul>
+                    <span class="text-xs bg-gray-200 px-2 py-1 rounded">Odoo</span>
+                    <span class="text-xs bg-gray-200 px-2 py-1 rounded">SQL</span>
+                </div>
+            </article>
         </div>
     </section>
 
+    <!-- SECCIÓN: Formación Académica (Reemplaza Certificaciones) -->
+    <section id="formacion" class="bg-white py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
+        <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
+            <span class="mb-2">Formación Académica</span>
+            <span class="bg-blue-600 w-20 h-1"></span>
+        </h2>
 
-    <!-- Sección de contacto mejorada -->
-    <section id="contacto" class="bg-white py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <!-- ASIR -->
+            <div class="bg-gray-50 p-8 rounded-lg shadow-md border-l-4 border-blue-600 hover:shadow-xl transition duration-300">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">Administración de Sistemas Informáticos en Red</h3>
+                        <p class="text-blue-600 font-semibold">Grado Superior (ASIR)</p>
+                    </div>
+                    <i class="fas fa-graduation-cap text-3xl text-gray-400"></i>
+                </div>
+                <p class="text-gray-600 mb-2">Institut Tecnològic de Barcelona</p>
+                <div class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded text-sm font-bold">2024 - Actualidad</div>
+                <p class="mt-4 text-sm text-gray-500">Especialización en configuración, administración y mantenimiento de sistemas informáticos y redes.</p>
+            </div>
+
+            <!-- SMR -->
+            <div class="bg-gray-50 p-8 rounded-lg shadow-md border-l-4 border-green-600 hover:shadow-xl transition duration-300">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800">Sistemas Microinformáticos y Redes</h3>
+                        <p class="text-green-600 font-semibold">Grado Medio (SMR)</p>
+                    </div>
+                    <i class="fas fa-graduation-cap text-3xl text-gray-400"></i>
+                </div>
+                <p class="text-gray-600 mb-2">Institut Tecnològic de Barcelona</p>
+                <div class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded text-sm font-bold">2022 - 2024</div>
+                <p class="mt-4 text-sm text-gray-500">Bases sólidas en montaje de equipos, instalación de software y redes locales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contacto" class="bg-gray-50 py-20 px-4 md:px-12 rounded-lg shadow-xl w-full max-w-6xl mx-auto my-12 scroll-animation">
         <h2 class="text-3xl font-bold text-center mb-12 flex flex-col items-center">
             <span class="mb-2">Contacto</span>
             <span class="bg-blue-600 w-20 h-1"></span>
         </h2>
 
-        <div class="flex flex-col lg:flex-row items-stretch shadow-xl rounded-lg overflow-hidden">
+        <div class="flex flex-col lg:flex-row items-stretch shadow-xl rounded-lg overflow-hidden bg-white">
             <div class="bg-blue-600 lg:w-2/5 p-8 text-white">
-                <h3 class="text-2xl font-bold mb-6">Información de Contacto</h3>
-                <p class="mb-8">¿Tienes alguna pregunta o quieres discutir sobre un proyecto? No dudes en ponerte en contacto conmigo a través de cualquiera de estos medios.</p>
+                <h3 class="text-2xl font-bold mb-6">Hablemos</h3>
+                <p class="mb-8">Estoy disponible para prácticas o nuevas oportunidades como SysAdmin o Técnico de Sistemas.</p>
 
                 <div class="space-y-6">
-                    <div class="flex items-start space-x-4">
+                    <div class="flex items-center space-x-4">
                         <div class="bg-blue-500 p-3 rounded-full">
-                            <i class="fas fa-envelope text-white"></i>
+                            <i class="fas fa-envelope"></i>
                         </div>
                         <div>
                             <h4 class="font-semibold">Email</h4>
@@ -770,90 +470,63 @@ echo "Máquinas creadas correctamente."</code></pre>
                         </div>
                     </div>
 
-                    <div class="flex items-start space-x-4">
+                    <div class="flex items-center space-x-4">
                         <div class="bg-blue-500 p-3 rounded-full">
-                            <i class="fab fa-linkedin text-white"></i>
+                            <i class="fab fa-linkedin"></i>
                         </div>
                         <div>
                             <h4 class="font-semibold">LinkedIn</h4>
-                            <p><a href="https://www.linkedin.com/in/alberto-trujillo-mingorance-288237266/" class="hover:text-blue-200">www.linkedin.com/in/alberto-trujillo</a></p>
+                            <p><a href="https://www.linkedin.com/in/alberto-trujillo-mingorance-288237266/" class="hover:text-blue-200">linkedin.com/in/alberto-trujillo</a></p>
                         </div>
                     </div>
 
-                    <div class="flex items-start space-x-4">
+                    <div class="flex items-center space-x-4">
                         <div class="bg-blue-500 p-3 rounded-full">
-                            <i class="fab fa-github text-white"></i>
+                            <i class="fab fa-github"></i>
                         </div>
                         <div>
                             <h4 class="font-semibold">GitHub</h4>
-                            <p><a href="https://github.com/AlbertoTrujillo1" class="hover:text-blue-200">github.com/AlbertoTrujillo-ITB2425</a></p>
+                            <p><a href="https://github.com/AlbertoTrujillo-ITB2425" class="hover:text-blue-200">github.com/AlbertoTrujillo-ITB2425</a></p>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <div class="lg:w-3/5 p-8 bg-white">
-                <h3 class="text-2xl font-bold mb-6 text-gray-800">Envíame un Mensaje</h3>
-                <p class="text-white-600 mb-8">Los datos proporcionados aquí son solo para fines de contacto y no serán compartidos ni filtrados.</p>
-
+            <div class="lg:w-3/5 p-8">
                 <form action="https://formspree.io/f/xoveqzwd" method="POST" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
-                            <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" required>
+                            <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
                         </div>
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Electrónico</label>
-                            <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" required>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
                         </div>
                     </div>
-
-                    <div>
-                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Asunto</label>
-                        <input type="text" id="subject" name="subject" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" required>
-                    </div>
-
                     <div>
                         <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
-                        <textarea id="message" name="message" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300" required></textarea>
+                        <textarea id="message" name="message" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required></textarea>
                     </div>
-
-                    <div class="text-right">
-                        <button type="submit" class="bg-blue-600 text-white py-3 px-8 rounded-lg hover:bg-blue-500 transition duration-300">
-                            <i class="fas fa-paper-plane mr-2"></i> Enviar Mensaje
-                        </button>
-                    </div>
+                    <button type="submit" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800 transition duration-300 font-bold">
+                        Enviar Mensaje
+                    </button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer mejorado -->
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12 mt-12">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-8 md:mb-0">
-                    <h3 class="text-2xl font-bold mb-4">Alberto Trujillo</h3>
-                    <p class="text-gray-400 mb-4">SysAdmin | Seguridad</p>
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/AlbertoTrujillo-ITB2425" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/alberto-trujillo-mingorance-288237266/" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-linkedin text-xl"></i>
-                        </a>
-                        <a href="mailto:atrumin16@gmail.com" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fas fa-envelope text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="text-center md:text-right">
-                    <p class="mb-2">&copy; 2025 Alberto Trujillo. Todos los derechos reservados.</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300 transition duration-300">Política de Privacidad</a>
-                </div>
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold mb-2">Alberto Trujillo</h3>
+            <p class="text-gray-400 mb-6">SysAdmin | Redes | Automatización</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://github.com/AlbertoTrujillo-ITB2425" class="text-gray-400 hover:text-white transition text-2xl"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/alberto-trujillo-mingorance-288237266/" class="text-gray-400 hover:text-white transition text-2xl"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:atrumin16@gmail.com" class="text-gray-400 hover:text-white transition text-2xl"><i class="fas fa-envelope"></i></a>
             </div>
+            <p class="text-gray-600 text-sm">&copy; 2026 Alberto Trujillo. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -867,138 +540,75 @@ echo "Máquinas creadas correctamente."</code></pre>
         // Menú móvil
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
 
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Cambio de modo oscuro/claro
+        // Dark Mode
         const darkModeToggle = document.getElementById('dark-mode-toggle');
         const darkModeIcon = document.getElementById('dark-mode-icon');
         const body = document.getElementById('body');
         const navbar = document.getElementById('navbar');
-        const heroBackground = document.getElementById('hero-background');
-
-        // Verificar si hay una preferencia guardada
+        
         const isDarkMode = localStorage.getItem('darkMode') === 'true';
-
-        // Aplicar el modo al cargar la página
-        if (isDarkMode) {
-            enableDarkMode();
-        }
+        if (isDarkMode) enableDarkMode();
 
         darkModeToggle.addEventListener('click', () => {
-            if (body.classList.contains('dark')) {
-                disableDarkMode();
-            } else {
-                enableDarkMode();
-            }
+            body.classList.contains('dark') ? disableDarkMode() : enableDarkMode();
         });
 
         function enableDarkMode() {
             body.classList.add('dark');
-            darkModeIcon.classList.remove('fa-moon');
-            darkModeIcon.classList.add('fa-sun');
-            navbar.classList.remove('bg-white');
-            navbar.classList.add('bg-gray-900', 'text-white');
+            darkModeIcon.classList.replace('fa-moon', 'fa-sun');
+            navbar.classList.replace('bg-white', 'bg-gray-900');
+            navbar.classList.add('text-white');
             localStorage.setItem('darkMode', 'true');
         }
 
         function disableDarkMode() {
             body.classList.remove('dark');
-            darkModeIcon.classList.remove('fa-sun');
-            darkModeIcon.classList.add('fa-moon');
-            navbar.classList.remove('bg-gray-900', 'text-white');
-            navbar.classList.add('bg-white');
+            darkModeIcon.classList.replace('fa-sun', 'fa-moon');
+            navbar.classList.replace('bg-gray-900', 'bg-white');
+            navbar.classList.remove('text-white');
             localStorage.setItem('darkMode', 'false');
         }
 
-        // Barras de progreso de habilidades
+        // Animaciones Scroll
         function animateSkillBars() {
-            const skillBars = document.querySelectorAll('.skill-bar');
-            skillBars.forEach(bar => {
-                const width = bar.getAttribute('data-width');
-                bar.style.width = width;
+            document.querySelectorAll('.skill-bar').forEach(bar => {
+                bar.style.width = bar.getAttribute('data-width');
             });
         }
 
-        // Animación de elementos al scroll
-        const scrollAnimations = document.querySelectorAll('.scroll-animation');
-
-        function checkScrollAnimations() {
-            scrollAnimations.forEach(animation => {
-                const animationPosition = animation.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-
-                if (animationPosition < screenPosition) {
-                    animation.classList.add('visible');
-
-                    // Si es la sección de habilidades, animar las barras
-                    if (animation.id === 'habilidades') {
-                        animateSkillBars();
-                    }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.id === 'habilidades') animateSkillBars();
                 }
             });
-        }
+        }, { threshold: 0.1 });
 
-        // Botón de volver arriba
+        document.querySelectorAll('.scroll-animation').forEach(el => observer.observe(el));
+
+        // Back to top & Navbar
         const backToTopButton = document.getElementById('back-to-top');
-
-        function toggleBackToTopButton() {
+        window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
                 backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
+                navbar.classList.add('shadow-md');
             } else {
                 backToTopButton.classList.add('opacity-0', 'invisible');
-                backToTopButton.classList.remove('opacity-100', 'visible');
+                navbar.classList.remove('shadow-md');
             }
-        }
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
         });
 
-        // Navbar scroll effect
-        function handleNavbarScroll() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md', 'py-2');
-                navbar.classList.remove('py-3');
-            } else {
-                navbar.classList.remove('shadow-md', 'py-2');
-                navbar.classList.add('py-3');
-            }
-        }
+        backToTopButton.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        // Event listeners
-        window.addEventListener('scroll', () => {
-            checkScrollAnimations();
-            toggleBackToTopButton();
-            handleNavbarScroll();
-        });
-
-        // Iniciar animaciones al cargar la página
-        window.addEventListener('load', () => {
-            checkScrollAnimations();
-            toggleBackToTopButton();
-            handleNavbarScroll();
-        });
-
-        // Smooth scroll para anclajes
+        // Smooth Scroll links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-
-                // Cerrar menú móvil si está abierto
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                mobileMenu.classList.add('hidden');
             });
         });
     </script>
